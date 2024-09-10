@@ -32,3 +32,6 @@ bin/
 
 # Ignore Gradle build output directory
 build
+
+# Ignore TEST-Folder
+RUN-TEST/*

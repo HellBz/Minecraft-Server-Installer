@@ -54,32 +54,6 @@ public interface MinecraftServerInstaller {
                             }
                         }
                     }
-                } else if (resource.getProtocol().equals("jar")) {
-                    // Läuft innerhalb einer JAR-Datei
-                    String jarPath = resource.getPath().substring(5, resource.getPath().indexOf("!"));
-                    try (JarFile jarFile = new JarFile(jarPath)) {
-                        Enumeration<JarEntry> entries = jarFile.entries();
-                        while (entries.hasMoreElements()) {
-                            JarEntry entry = entries.nextElement();
-                            String entryName = entry.getName();
-                            if (entryName.startsWith(path) && entryName.endsWith(".class")) {
-                                String relativePath = entryName.substring(path.length() + 1);
-                                int slashIndex = relativePath.indexOf('/');
-                                if (slashIndex != -1) {
-                                    String subdirName = relativePath.substring(0, slashIndex);
-                                    String className = packageName + '.' + subdirName + '.' + subdirName;
-                                    if (relativePath.equals(subdirName + "/" + subdirName + ".class")) {
-                                        Class<?> clazz = Class.forName(className);
-                                        if (MinecraftServerInstaller.class.isAssignableFrom(clazz)) {
-                                            MinecraftServerInstaller installer = (MinecraftServerInstaller) clazz.getDeclaredConstructor().newInstance();
-                                            installers.add(installer);
-                                            logger.info("Loaded internal installer: " + className);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
         } catch (Exception e) {
@@ -90,60 +64,68 @@ public interface MinecraftServerInstaller {
     }
 
     static void loadExternalJars(String directoryPath, List<MinecraftServerInstaller> installers) {
-        System.out.println("Scan Dir \"" + directoryPath + "\" ...");
+        logger.info("Scanning directory: \"" + directoryPath + "\" ...");
 
         File externalPluginDir = new File(directoryPath);
         if (externalPluginDir.exists() && externalPluginDir.isDirectory()) {
             File[] externalJars = externalPluginDir.listFiles((dir, name) -> name.endsWith(".jar"));
             if (externalJars != null && externalJars.length > 0) {
                 for (File jar : externalJars) {
-                    String status = "loaded"; // Standardstatus
-
-                    MinecraftServerInstaller externalInstaller = null;
-                    try {
-                        externalInstaller = loadInstallerFromJar(jar);
-
-                        if (externalInstaller != null) {
-                            String externalClassName = externalInstaller.getClass().getName();
-
-                            if (externalClassName.startsWith("de.hellbz.MinecraftServerInstallerModules")) {
-                                boolean replaced = false;
-                                for (int i = 0; i < installers.size(); i++) {
-                                    MinecraftServerInstaller internalInstaller = installers.get(i);
-                                    String internalClassName = internalInstaller.getClass().getName();
-
-                                    if (internalClassName.equals(externalClassName)) {
-                                        installers.set(i, externalInstaller);
-                                        replaced = true;
-                                        status = "overwrite (" + internalInstaller.getClass().getSimpleName() + ")";
-                                        break;
-                                    }
-                                }
-                                if (!replaced) {
-                                    installers.add(externalInstaller);
-                                }
-                            } else {
-                                status = "skipped (not in the allowed package)";
-                            }
-                        } else {
-                            status = "skipped (unable to load Main-Class correctly)";
-                        }
-                    } catch (Exception e) {
-                        status = "skipped (error loading class)";
-                        logger.severe("Error loading installer from JAR: " + jar.getName());
-                        e.printStackTrace();
-                    }
-
-                    // Ausgabe mit finalem Status
-                    logger.info("Found external JAR: " + jar.getName() + " - " + status);
+                    loadSingleJar(jar, installers);
                 }
             } else {
-                logger.warning("No external JAR files found in the \"" + directoryPath + "\" directory.");
+                logger.warning("No JAR files found in directory: \"" + directoryPath + "\".");
             }
         } else {
-            logger.warning("The external \"" + directoryPath + "\" directory does not exist or is not a directory.");
+            logger.warning("Directory does not exist or is not a directory: \"" + directoryPath + "\".");
         }
     }
+
+    static void loadSingleJar(File jar, List<MinecraftServerInstaller> installers) {
+        String status = "loaded"; // Default status
+        MinecraftServerInstaller externalInstaller = null;
+
+        try {
+            externalInstaller = loadInstallerFromJar(jar);
+            if (externalInstaller != null) {
+                String externalClassName = externalInstaller.getClass().getName();
+                if (externalClassName.startsWith("de.hellbz.MinecraftServerInstallerModules")) {
+                    status = handleJarReplacement(externalInstaller, externalClassName, installers);
+                } else {
+                    status = "skipped (not in the allowed package)";
+                }
+            } else {
+                status = "skipped (unable to load Main-Class correctly)";
+            }
+        } catch (Exception e) {
+            status = "skipped (error loading class)";
+            logger.severe("Error loading installer from JAR: " + jar.getName());
+            e.printStackTrace();
+        }
+
+        // Log final status
+        logger.info("Found external JAR: " + jar.getName() + " - " + status);
+    }
+
+    static String handleJarReplacement(MinecraftServerInstaller externalInstaller, String externalClassName, List<MinecraftServerInstaller> installers) {
+        boolean replaced = false;
+        for (int i = 0; i < installers.size(); i++) {
+            MinecraftServerInstaller internalInstaller = installers.get(i);
+            String internalClassName = internalInstaller.getClass().getName();
+
+            if (internalClassName.equals(externalClassName)) {
+                installers.set(i, externalInstaller);
+                replaced = true;
+                return "overwrite (" + internalInstaller.getClass().getSimpleName() + ")";
+            }
+        }
+
+        if (!replaced) {
+            installers.add(externalInstaller);
+        }
+        return "loaded";
+    }
+
 
     static MinecraftServerInstaller loadInstallerFromJar(File jarFile) throws Exception {
         URL jarUrl = jarFile.toURI().toURL();
