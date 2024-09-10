@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSI Log Viewer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS for sorting and filtering -->
+    <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <style>
+        /* Default styles, will be updated dynamically */
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        table {
+            border-color: #000000;
+        }
+
+        /* Table row colors */
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Button styling */
+        .color-picker-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .color-picker label {
+            margin-right: 10px;
+        }
+
+        .color-picker input {
+            margin-right: 20px;
+        }
+
+        .table-wrapper {
+            margin-top: 20px;
+        }
+
+        /* Dynamic styling for input fields */
+        #csvFileInput {
+            color: inherit;
+            background-color: inherit;
+            border: 1px solid currentColor;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container my-4">
+        <h1 class="text-center">MSI Log Viewer</h1>
+
+        <!-- Color pickers for background and text color -->
+        <div class="color-picker-row">
+            <div class="color-picker">
+                <label for="bgColorInput">Background Color:</label>
+                <input type="color" id="bgColorInput">
+            </div>
+            <div class="color-picker">
+                <label for="textColorInput">Text Color:</label>
+                <input type="color" id="textColorInput">
+            </div>
+        </div>
+
+        <!-- File input to allow local CSV file loading -->
+        <input type="file" id="csvFileInput" accept=".csv" class="form-control mb-4">
+        
+        <div class="table-wrapper">
+            <table id="logTable" class="table table-striped table-bordered">
+                <thead>
+                    <tr id="tableHeader">
+                        <!-- Header will be dynamically generated -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- CSV data will be dynamically loaded here -->
+                </tbody>
+                <tfoot>
+                    <tr id="tableFooter">
+                        <!-- Footer will be dynamically generated -->
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+ 
+    <!-- jQuery, Bootstrap, and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+
+    <!-- PapaParse for CSV Parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Load saved colors from localStorage and update pickers
+            if (localStorage.getItem('bgColor')) {
+                var savedBgColor = localStorage.getItem('bgColor');
+                $('body').css('background-color', savedBgColor);
+                $('#bgColorInput').val(savedBgColor);
+            }
+
+            if (localStorage.getItem('textColor')) {
+                var savedTextColor = localStorage.getItem('textColor');
+                applyTextColor(savedTextColor);
+                $('#textColorInput').val(savedTextColor);
+            }
+
+            if (localStorage.getItem('tableOddColor')) {
+                $('tr:nth-child(odd)').css('background-color', localStorage.getItem('tableOddColor'));
+            }
+
+            if (localStorage.getItem('tableEvenColor')) {
+                $('tr:nth-child(even)').css('background-color', localStorage.getItem('tableEvenColor'));
+                $('#csvFileInput').css('background-color', localStorage.getItem('tableEvenColor'));
+            }
+
+            if (localStorage.getItem('borderColor')) {
+                $('table').css('border-color', localStorage.getItem('borderColor'));
+            }
+
+            // Background color change event
+            $('#bgColorInput').on('input', function() {
+                var bgColor = $(this).val();
+                $('body').css('background-color', bgColor);
+
+                // Adjust table row colors based on the background color
+                var lighterBorderColor = shadeColor(bgColor, 20);
+
+                $('tr:nth-child(odd)').css('background-color', bgColor);
+                $('tr:nth-child(even)').css('background-color', lighterBorderColor);
+                $('table').css('border-color', lighterBorderColor);
+
+                // Apply even color to file input background
+                $('#csvFileInput').css('background-color', lighterBorderColor);
+
+                // Save the colors
+                localStorage.setItem('bgColor', bgColor);
+                localStorage.setItem('tableOddColor', bgColor);
+                localStorage.setItem('tableEvenColor', lighterBorderColor);
+                localStorage.setItem('borderColor', lighterBorderColor);
+            });
+
+            // Text color change event
+            $('#textColorInput').on('input', function() {
+                var textColor = $(this).val();
+                applyTextColor(textColor);
+                localStorage.setItem('textColor', textColor);
+            });
+
+            // File upload event
+            $('#csvFileInput').on('change', function(event) {
+                var file = event.target.files[0];
+
+                if (file) {
+                    Papa.parse(file, {
+                        header: true,
+                        complete: function(results) {
+                            // Reset table before reloading new file
+                            var tableHeader = $('#tableHeader');
+                            var tableBody = $('#logTable tbody');
+                            var tableFooter = $('#tableFooter');
+                            tableHeader.empty();
+                            tableBody.empty();
+                            tableFooter.empty();
+
+                            // Generate table headers and footers dynamically
+                            var firstRow = results.meta.fields; // Get column names from the CSV header
+                            firstRow.forEach(function(column) {
+                                tableHeader.append('<th>' + column + '</th>');
+                                tableFooter.append('<th>' + column + '</th>');
+                            });
+
+                            // Populate the table with CSV data
+                            results.data.forEach(function(row) {
+                                var newRow = '<tr>';
+                                firstRow.forEach(function(column) {
+                                    newRow += '<td>' + row[column] + '</td>';
+                                });
+                                newRow += '</tr>';
+                                tableBody.append(newRow);
+                            });
+
+                            // Re-initialize DataTables after loading new data
+                            $('#logTable').DataTable();
+                        }
+                    });
+                }
+            });
+        });
+
+        // Function to lighten a color
+        function shadeColor(color, percent) {
+            var f = parseInt(color.slice(1), 16),
+                t = percent < 0 ? 0 : 255,
+                p = percent < 0 ? percent * -1 : percent,
+                R = f >> 16,
+                G = f >> 8 & 0x00FF,
+                B = f & 0x0000FF;
+            return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+        }
+
+        // Function to apply text color to entire table (header, footer, and body)
+        function applyTextColor(textColor) {
+            $('body').css('color', textColor);
+            $('table, th, td, #csvFileInput').css('color', textColor);
+            $('#csvFileInput').css('border-color', textColor);
+        }
+    </script>
+</body>
+</html>
