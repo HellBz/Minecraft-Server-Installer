@@ -19,7 +19,7 @@ public class MainInstaller {
 
 
         String version = "v 1.2.45"; // Beispiel-Version
-        String centeredVersion = centerText( version, 15);
+        String cVersion = centerText( version, 15);
 
 
         System.out.println("\n" +
@@ -29,7 +29,7 @@ public class MainInstaller {
                 "|   Minecraft   |  | Twitter:   https://x.com/HellBz\n" +
                 "|     Server    |  | Discord:   https://discord.gg/tuzpmeZ\n" +
                 "|   Installer   |  | Steam:     https://s.team/u/hellbz\n" +
-        "|" + centeredVersion + "| /  Facebook:  https://fb.com/hellbz\n" +
+                "|"+ cVersion + "| /  Facebook:  https://fb.com/hellbz\n" +
                 "|_______________|/   Instagram: https://instagram.com/h3llbz\n\n" +
                         "------------------------------------------------------------");
 
