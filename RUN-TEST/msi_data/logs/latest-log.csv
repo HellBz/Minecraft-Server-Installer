@@ -969,3 +969,747 @@ Timestamp,Log Level,Message,Class,Method
 2024-09-10 02:50:09,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
 2024-09-10 02:50:09,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
 2024-09-10 02:50:09,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:51:46,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:51:46,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:51:46,SEVERE,Failed to list directory: src\main\java\de\hellbz\MinecraftServerInstallerModules due to src\main\java\de\hellbz\MinecraftServerInstallerModules,de.hellbz.MinecraftServerInstaller.Utils.DirectoryLister,list
+2024-09-10 23:51:46,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:51:46,WARNING,No external JAR files found in the "msi_data/modules" directory.,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-10 23:51:46,SEVERE,No installers were loaded. Exiting.,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:53:14,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:53:14,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:53:14,SEVERE,Failed to list directory: de\hellbz\MinecraftServerInstallerModules due to de\hellbz\MinecraftServerInstallerModules,de.hellbz.MinecraftServerInstaller.Utils.DirectoryLister,list
+2024-09-10 23:53:14,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-10 23:53:14,WARNING,No external JAR files found in the "msi_data/modules" directory.,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-10 23:53:14,SEVERE,No installers were loaded. Exiting.,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:01:31,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:01:31,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:01:31,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:01:31,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:01:31,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:01:31,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:01:31,WARNING,No external JAR files found in the "msi_data/modules" directory.,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:01:31,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:01:31,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:01:31,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:33,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:49,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:49,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:49,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:03:49,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:03:49,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:03:49,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:49,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:03:49,WARNING,No JAR files found in directory: "msi_data/modules".,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:03:49,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:03:49,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:03:49,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:04:39,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:08,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:08,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:08,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:05:08,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:05:08,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:05:08,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:08,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:05:08,WARNING,No JAR files found in directory: "msi_data/modules".,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:05:08,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:08,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:05:08,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:05:21,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:06:24,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:06:24,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:06:24,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:06:24,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:06:24,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:06:24,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:06:24,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:06:24,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:06:24,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:06:24,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:06:24,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:06:24,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:08:18,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:08:18,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:08:18,INFO,Loading external JARs from msi_data/modules ...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:08:18,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:08:18,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:08:18,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:08:18,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:08:18,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:08:18,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:09:12,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:09:12,INFO,[1] 24w36a                  [2] 24w35a                  [3] 24w34a                  [4] 24w33a                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[5] 1.21.1                  [6] 1.21.1-rc1              [7] 1.21                    [8] 1.21-rc1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[9] 1.21-pre4               [10] 1.21-pre3              [11] 1.21-pre2              [12] 1.21-pre1              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[13] 24w21b                 [14] 24w21a                 [15] 24w20a                 [16] 24w19b                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[17] 24w19a                 [18] 24w18a                 [19] 1.20.6                 [20] 1.20.6-rc1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[21] 1.20.5                 [22] 1.20.5-rc3             [23] 1.20.5-rc2             [24] 1.20.5-rc1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[25] 1.20.5-pre4            [26] 1.20.5-pre3            [27] 1.20.5-pre2            [28] 1.20.5-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[29] 24w14a                 [30] 24w14potato            [31] 24w13a                 [32] 24w12a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[33] 24w11a                 [34] 24w10a                 [35] 24w09a                 [36] 24w07a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[37] 24w06a                 [38] 24w05b                 [39] 24w05a                 [40] 24w04a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[41] 24w03b                 [42] 24w03a                 [43] 23w51b                 [44] 23w51a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[45] 1.20.4                 [46] 1.20.4-rc1             [47] 1.20.3                 [48] 1.20.3-rc1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[49] 1.20.3-pre4            [50] 1.20.3-pre3            [51] 1.20.3-pre2            [52] 1.20.3-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[53] 23w46a                 [54] 23w45a                 [55] 23w44a                 [56] 23w43b                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[57] 23w43a                 [58] 23w42a                 [59] 23w41a                 [60] 23w40a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[61] 1.20.2                 [62] 1.20.2-rc2             [63] 1.20.2-rc1             [64] 1.20.2-pre4            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[65] 1.20.2-pre3            [66] 1.20.2-pre2            [67] 1.20.2-pre1            [68] 23w35a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[69] 23w33a                 [70] 23w32a                 [71] 23w31a                 [72] 1.20.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[73] 1.20.1-rc1             [74] 1.20                   [75] 1.20-rc1               [76] 1.20-pre7              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[77] 1.20-pre6              [78] 1.20-pre5              [79] 1.20-pre4              [80] 1.20-pre3              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[81] 1.20-pre2              [82] 1.20-pre1              [83] 23w18a                 [84] 23w17a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[85] 23w16a                 [86] 23w14a                 [87] 23w13a_or_b            [88] 23w13a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[89] 23w12a                 [90] 1.19.4                 [91] 1.19.4-rc3             [92] 1.19.4-rc2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[93] 1.19.4-rc1             [94] 1.19.4-pre4            [95] 1.19.4-pre3            [96] 1.19.4-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[97] 1.19.4-pre1            [98] 23w07a                 [99] 23w06a                 [100] 23w05a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[101] 23w04a                [102] 23w03a                [103] 1.19.3                [104] 1.19.3-rc3            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[105] 1.19.3-rc2            [106] 1.19.3-rc1            [107] 1.19.3-pre3           [108] 1.19.3-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[109] 1.19.3-pre1           [110] 22w46a                [111] 22w45a                [112] 22w44a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[113] 22w43a                [114] 22w42a                [115] 1.19.2                [116] 1.19.2-rc2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[117] 1.19.2-rc1            [118] 1.19.1                [119] 1.19.1-rc3            [120] 1.19.1-rc2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[121] 1.19.1-pre6           [122] 1.19.1-pre5           [123] 1.19.1-pre4           [124] 1.19.1-pre3           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[125] 1.19.1-pre2           [126] 1.19.1-rc1            [127] 1.19.1-pre1           [128] 22w24a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[129] 1.19                  [130] 1.19-rc2              [131] 1.19-rc1              [132] 1.19-pre5             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[133] 1.19-pre4             [134] 1.19-pre3             [135] 1.19-pre2             [136] 1.19-pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[137] 22w19a                [138] 22w18a                [139] 22w17a                [140] 22w16b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[141] 22w16a                [142] 22w15a                [143] 22w14a                [144] 22w13oneblockatatime  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[145] 22w13a                [146] 22w12a                [147] 22w11a                [148] 1.18.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[149] 1.18.2-rc1            [150] 1.18.2-pre3           [151] 1.18.2-pre2           [152] 1.18.2-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[153] 22w07a                [154] 22w06a                [155] 22w05a                [156] 22w03a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[157] 1.18.1                [158] 1.18.1-rc3            [159] 1.18.1-rc2            [160] 1.18.1-rc1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[161] 1.18.1-pre1           [162] 1.18                  [163] 1.18-rc4              [164] 1.18-rc3              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[165] 1.18-rc2              [166] 1.18-rc1              [167] 1.18-pre8             [168] 1.18-pre7             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[169] 1.18-pre6             [170] 1.18-pre5             [171] 1.18-pre4             [172] 1.18-pre3             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[173] 1.18-pre2             [174] 1.18-pre1             [175] 21w44a                [176] 21w43a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[177] 21w42a                [178] 21w41a                [179] 21w40a                [180] 21w39a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[181] 21w38a                [182] 21w37a                [183] 1.17.1                [184] 1.17.1-rc2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[185] 1.17.1-rc1            [186] 1.17.1-pre3           [187] 1.17.1-pre2           [188] 1.17.1-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[189] 1.17                  [190] 1.17-rc2              [191] 1.17-rc1              [192] 1.17-pre5             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[193] 1.17-pre4             [194] 1.17-pre3             [195] 1.17-pre2             [196] 1.17-pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[197] 21w20a                [198] 21w19a                [199] 21w18a                [200] 21w17a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[201] 21w16a                [202] 21w15a                [203] 21w14a                [204] 21w13a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[205] 21w11a                [206] 21w10a                [207] 21w08b                [208] 21w08a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[209] 21w07a                [210] 21w06a                [211] 21w05b                [212] 21w05a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[213] 21w03a                [214] 1.16.5                [215] 1.16.5-rc1            [216] 20w51a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[217] 20w49a                [218] 20w48a                [219] 20w46a                [220] 20w45a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[221] 1.16.4                [222] 1.16.4-rc1            [223] 1.16.4-pre2           [224] 1.16.4-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[225] 1.16.3                [226] 1.16.3-rc1            [227] 1.16.2                [228] 1.16.2-rc2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[229] 1.16.2-rc1            [230] 1.16.2-pre3           [231] 1.16.2-pre2           [232] 1.16.2-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[233] 20w30a                [234] 20w29a                [235] 20w28a                [236] 20w27a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[237] 1.16.1                [238] 1.16                  [239] 1.16-rc1              [240] 1.16-pre8             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[241] 1.16-pre7             [242] 1.16-pre6             [243] 1.16-pre5             [244] 1.16-pre4             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[245] 1.16-pre3             [246] 1.16-pre2             [247] 1.16-pre1             [248] 20w22a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[249] 20w21a                [250] 20w20b                [251] 20w20a                [252] 20w19a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[253] 20w18a                [254] 20w17a                [255] 20w16a                [256] 20w15a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[257] 20w14a                [258] 20w14infinite         [259] 20w13b                [260] 20w13a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[261] 20w12a                [262] 20w11a                [263] 20w10a                [264] 20w09a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[265] 20w08a                [266] 20w07a                [267] 20w06a                [268] 1.15.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[269] 1.15.2-pre2           [270] 1.15.2-pre1           [271] 1.15.1                [272] 1.15.1-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[273] 1.15                  [274] 1.15-pre7             [275] 1.15-pre6             [276] 1.15-pre5             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[277] 1.15-pre4             [278] 1.15-pre3             [279] 1.15-pre2             [280] 1.15-pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[281] 19w46b                [282] 19w46a                [283] 19w45b                [284] 19w45a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[285] 19w44a                [286] 19w42a                [287] 19w41a                [288] 19w40a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[289] 19w39a                [290] 19w38b                [291] 19w38a                [292] 19w37a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[293] 19w36a                [294] 19w35a                [295] 19w34a                [296] 1.14.4                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[297] 1.14.4-pre7           [298] 1.14.4-pre6           [299] 1.14.4-pre5           [300] 1.14.4-pre4           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[301] 1.14.4-pre3           [302] 1.14.4-pre2           [303] 1.14.4-pre1           [304] 1.14.3                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[305] 1.14.3-pre4           [306] 1.14.3-pre3           [307] 1.14.3-pre2           [308] 1.14.3-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[309] 1.14.2                [310] 1.14.2 Pre-Release 4  [311] 1.14.2 Pre-Release 3  [312] 1.14.2 Pre-Release 2  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[313] 1.14.2 Pre-Release 1  [314] 1.14.1                [315] 1.14.1 Pre-Release 2  [316] 1.14.1 Pre-Release 1  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[317] 1.14                  [318] 1.14 Pre-Release 5    [319] 1.14 Pre-Release 4    [320] 1.14 Pre-Release 3    ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[321] 1.14 Pre-Release 2    [322] 1.14 Pre-Release 1    [323] 19w14b                [324] 19w14a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[325] 3D Shareware v1.34    [326] 19w13b                [327] 19w13a                [328] 19w12b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[329] 19w12a                [330] 19w11b                [331] 19w11a                [332] 19w09a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[333] 19w08b                [334] 19w08a                [335] 19w07a                [336] 19w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[337] 19w05a                [338] 19w04b                [339] 19w04a                [340] 19w03c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[341] 19w03b                [342] 19w03a                [343] 19w02a                [344] 18w50a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[345] 18w49a                [346] 18w48b                [347] 18w48a                [348] 18w47b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[349] 18w47a                [350] 18w46a                [351] 18w45a                [352] 18w44a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[353] 18w43c                [354] 18w43b                [355] 18w43a                [356] 1.13.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[357] 1.13.2-pre2           [358] 1.13.2-pre1           [359] 1.13.1                [360] 1.13.1-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[361] 1.13.1-pre1           [362] 18w33a                [363] 18w32a                [364] 18w31a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[365] 18w30b                [366] 18w30a                [367] 1.13                  [368] 1.13-pre10            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[369] 1.13-pre9             [370] 1.13-pre8             [371] 1.13-pre7             [372] 1.13-pre6             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[373] 1.13-pre5             [374] 1.13-pre4             [375] 1.13-pre3             [376] 1.13-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[377] 1.13-pre1             [378] 18w22c                [379] 18w22b                [380] 18w22a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[381] 18w21b                [382] 18w21a                [383] 18w20c                [384] 18w20b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[385] 18w20a                [386] 18w19b                [387] 18w19a                [388] 18w16a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[389] 18w15a                [390] 18w14b                [391] 18w14a                [392] 18w11a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[393] 18w10d                [394] 18w10c                [395] 18w10b                [396] 18w10a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[397] 18w09a                [398] 18w08b                [399] 18w08a                [400] 18w07c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[401] 18w07b                [402] 18w07a                [403] 18w06a                [404] 18w05a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[405] 18w03b                [406] 18w03a                [407] 18w02a                [408] 18w01a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[409] 17w50a                [410] 17w49b                [411] 17w49a                [412] 17w48a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[413] 17w47b                [414] 17w47a                [415] 17w46a                [416] 17w45b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[417] 17w45a                [418] 17w43b                [419] 17w43a                [420] 1.12.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[421] 1.12.2-pre2           [422] 1.12.2-pre1           [423] 1.12.1                [424] 1.12.1-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[425] 17w31a                [426] 1.12                  [427] 1.12-pre7             [428] 1.12-pre6             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[429] 1.12-pre5             [430] 1.12-pre4             [431] 1.12-pre3             [432] 1.12-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[433] 1.12-pre1             [434] 17w18b                [435] 17w18a                [436] 17w17b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[437] 17w17a                [438] 17w16b                [439] 17w16a                [440] 17w15a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[441] 17w14a                [442] 17w13b                [443] 17w13a                [444] 17w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[445] 1.11.2                [446] 1.11.1                [447] 16w50a                [448] 1.11                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[449] 1.11-pre1             [450] 16w44a                [451] 16w43a                [452] 16w42a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[453] 16w41a                [454] 16w40a                [455] 16w39c                [456] 16w39b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[457] 16w39a                [458] 16w38a                [459] 16w36a                [460] 16w35a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[461] 16w33a                [462] 16w32b                [463] 16w32a                [464] 1.10.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[465] 1.10.1                [466] 1.10                  [467] 1.10-pre2             [468] 1.10-pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[469] 16w21b                [470] 16w21a                [471] 16w20a                [472] 1.9.4                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[473] 1.9.3                 [474] 1.9.3-pre3            [475] 1.9.3-pre2            [476] 1.9.3-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[477] 16w15b                [478] 16w15a                [479] 16w14a                [480] 1.RV-Pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[481] 1.9.2                 [482] 1.9.1                 [483] 1.9.1-pre3            [484] 1.9.1-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[485] 1.9.1-pre1            [486] 1.9                   [487] 1.9-pre4              [488] 1.9-pre3              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[489] 1.9-pre2              [490] 1.9-pre1              [491] 16w07b                [492] 16w07a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[493] 16w06a                [494] 16w05b                [495] 16w05a                [496] 16w04a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[497] 16w03a                [498] 16w02a                [499] 15w51b                [500] 15w51a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[501] 15w50a                [502] 15w49b                [503] 1.8.9                 [504] 15w49a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[505] 15w47c                [506] 15w47b                [507] 15w47a                [508] 15w46a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[509] 15w45a                [510] 15w44b                [511] 15w44a                [512] 15w43c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[513] 15w43b                [514] 15w43a                [515] 15w42a                [516] 15w41b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[517] 15w41a                [518] 15w40b                [519] 15w40a                [520] 15w39c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[521] 15w39b                [522] 15w39a                [523] 15w38b                [524] 15w38a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[525] 15w37a                [526] 15w36d                [527] 15w36c                [528] 15w36b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[529] 15w36a                [530] 15w35e                [531] 15w35d                [532] 15w35c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[533] 15w35b                [534] 15w35a                [535] 15w34d                [536] 15w34c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[537] 15w34b                [538] 15w34a                [539] 15w33c                [540] 15w33b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[541] 15w33a                [542] 15w32c                [543] 15w32b                [544] 15w32a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[545] 15w31c                [546] 15w31b                [547] 15w31a                [548] 1.8.8                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[549] 1.8.7                 [550] 1.8.6                 [551] 1.8.5                 [552] 1.8.4                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[553] 15w14a                [554] 1.8.3                 [555] 1.8.2                 [556] 1.8.2-pre7            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[557] 1.8.2-pre6            [558] 1.8.2-pre5            [559] 1.8.2-pre4            [560] 1.8.2-pre3            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[561] 1.8.2-pre2            [562] 1.8.2-pre1            [563] 1.8.1                 [564] 1.8.1-pre5            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[565] 1.8.1-pre4            [566] 1.8.1-pre3            [567] 1.8.1-pre2            [568] 1.8.1-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[569] 1.8                   [570] 1.8-pre3              [571] 1.8-pre2              [572] 1.8-pre1              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[573] 14w34d                [574] 14w34c                [575] 14w34b                [576] 14w34a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[577] 14w33c                [578] 14w33b                [579] 14w33a                [580] 14w32d                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[581] 14w32c                [582] 14w32b                [583] 14w32a                [584] 14w31a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[585] 14w30c                [586] 14w30b                [587] 14w30a                [588] 14w29b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[589] 14w29a                [590] 14w28b                [591] 14w28a                [592] 14w27b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[593] 14w27a                [594] 14w26c                [595] 14w26b                [596] 14w26a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[597] 14w25b                [598] 14w25a                [599] 14w21b                [600] 14w21a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[601] 14w20b                [602] 14w20a                [603] 1.7.10                [604] 1.7.10-pre4           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[605] 1.7.10-pre3           [606] 1.7.10-pre2           [607] 1.7.10-pre1           [608] 14w19a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[609] 14w18b                [610] 14w18a                [611] 14w17a                [612] 14w11b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[613] 1.7.9                 [614] 1.7.8                 [615] 1.7.7                 [616] 1.7.6                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[617] 14w11a                [618] 1.7.6-pre2            [619] 1.7.6-pre1            [620] 14w10c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[621] 14w10b                [622] 14w10a                [623] 14w08a                [624] 1.7.5                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[625] 14w07a                [626] 14w06b                [627] 14w06a                [628] 14w05b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[629] 14w05a                [630] 14w04b                [631] 14w04a                [632] 14w03b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[633] 14w03a                [634] 14w02c                [635] 14w02b                [636] 14w02a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[637] 1.7.4                 [638] 1.7.3                 [639] 13w49a                [640] 13w48b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[641] 13w48a                [642] 13w47e                [643] 13w47d                [644] 13w47c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[645] 13w47b                [646] 13w47a                [647] 1.7.2                 [648] 1.7.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[649] 1.7                   [650] 13w43a                [651] 13w42b                [652] 13w42a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[653] 13w41b                [654] 13w41a                [655] 13w39b                [656] 13w39a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[657] 13w38c                [658] 13w38b                [659] 13w38a                [660] 1.6.4                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[661] 13w37b                [662] 1.6.3                 [663] 13w37a                [664] 13w36b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[665] 13w36a                [666] 1.6.2                 [667] 1.6.1                 [668] 1.6                   ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[669] 13w26a                [670] 13w25c                [671] 13w25b                [672] 13w25a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[673] 13w24b                [674] 13w24a                [675] 13w23b                [676] 13w23a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[677] 13w22a                [678] 13w21b                [679] 13w21a                [680] 13w19a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[681] 13w18c                [682] 13w18b                [683] 13w18a                [684] 13w17a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[685] 1.5.2                 [686] 13w16b                [687] 13w16a                [688] 1.5.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[689] 1.5                   [690] 1.4.7                 [691] 1.4.5                 [692] 1.4.6                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[693] 1.4.4                 [694] 1.4.3                 [695] 1.4.2                 [696] 1.4.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[697] 1.4                   [698] 1.3.2                 [699] 1.3.1                 [700] 1.3                   ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[701] 1.2.5                 [702] 1.2.4                 [703] 1.2.3                 [704] 1.2.2                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[705] 1.2.1                 [706] 1.1                   [707] 1.0                   [708] b1.8.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[709] b1.8                  [710] b1.7.3                [711] b1.7.2                [712] b1.7                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[713] b1.6.6                [714] b1.6.5                [715] b1.6.4                [716] b1.6.3                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[717] b1.6.2                [718] b1.6.1                [719] b1.6                  [720] b1.5_01               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[721] b1.5                  [722] b1.4_01               [723] b1.4                  [724] b1.3_01               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[725] b1.3b                 [726] b1.2_02               [727] b1.2_01               [728] b1.2                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[729] b1.1_02               [730] b1.1_01               [731] b1.0.2                [732] b1.0_01               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[733] b1.0                  [734] a1.2.6                [735] a1.2.5                [736] a1.2.4_01             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[737] a1.2.3_04             [738] a1.2.3_02             [739] a1.2.3_01             [740] a1.2.3                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[741] a1.2.2b               [742] a1.2.2a               [743] a1.2.1_01             [744] a1.2.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[745] a1.2.0_02             [746] a1.2.0_01             [747] a1.2.0                [748] a1.1.2_01             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[749] a1.1.2                [750] a1.1.0                [751] a1.0.17_04            [752] a1.0.17_02            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[753] a1.0.16               [754] a1.0.15               [755] a1.0.14               [756] a1.0.11               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[757] a1.0.5_01             [758] a1.0.4                [759] inf-20100618          [760] c0.30_01c             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[761] c0.0.13a              [762] c0.0.13a_03           [763] c0.0.11a              [764] rd-161348             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,[765] rd-160052             [766] rd-20090515           [767] rd-132328             [768] rd-132211             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:09:12,INFO,Select a version (1-768): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:09:25,INFO,Enable auto-update? (yes/no): ,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:09:29,INFO,Auto-update is enabled. (This is a future feature),de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:09:29,INFO,Installation process completed. Exiting.,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:36:53,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:36:53,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:36:53,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:36:53,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:36:53,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:36:53,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:36:53,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:36:53,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:36:53,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:36:53,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:36:53,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:36:53,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:36:53,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:39:19,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:39:19,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:39:19,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:39:19,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:39:19,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:39:19,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:39:19,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:39:19,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:39:19,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:39:19,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:39:19,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:39:19,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:39:19,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:39:19,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:40:42,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:40:43,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:40:43,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:40:43,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:40:43,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:40:43,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:40:43,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:40:43,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:40:43,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:40:43,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:40:43,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:40:43,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:40:43,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:40:43,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:45:05,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:45:06,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:45:06,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:45:06,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:45:06,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:45:06,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:45:06,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:45:06,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:45:06,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:45:06,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:45:06,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:45:06,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:45:06,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:45:06,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:46:29,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:46:29,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:46:29,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:46:29,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:46:29,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:46:29,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:46:29,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:46:29,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:46:29,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:46:29,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:46:29,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:46:29,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:46:29,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:46:29,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:47:50,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:47:50,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:47:50,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:47:50,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:47:50,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:47:50,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:47:50,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:47:50,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:47:50,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:47:50,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:47:50,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:47:50,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:47:50,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:48:43,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:48:43,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:48:43,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:48:44,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:48:44,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:48:44,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:48:44,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:48:44,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:48:44,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:48:44,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:48:44,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:48:44,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:48:44,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:48:44,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:50:05,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:50:05,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:50:05,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:50:05,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:50:05,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:50:05,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:50:05,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:50:05,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:50:05,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:50:05,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:50:05,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:50:05,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:50:05,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:50:05,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:04,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:04,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:04,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:04,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:04,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:04,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:04,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:04,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:51:04,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:04,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:04,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:04,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:04,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:51:04,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:32,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:33,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:33,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:33,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:33,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:33,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:51:33,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:51:33,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:51:33,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:33,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:33,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:51:33,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:51:33,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:51:33,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:53:11,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:53:11,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:53:11,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:53:11,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:53:11,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:53:11,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:53:11,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:53:11,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:53:11,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:53:11,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:53:11,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:53:11,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:53:11,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:53:11,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:55:21,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:55:21,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:55:21,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:55:21,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:55:21,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:55:21,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 00:55:21,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 00:55:21,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 00:55:21,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:55:21,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:55:21,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 00:55:21,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 00:55:21,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 00:55:21,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:10:07,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:07,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:07,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:07,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:07,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:07,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:07,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:10:07,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:07,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:07,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:07,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:10:07,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:10:07,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:10:17,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:17,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:17,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:17,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:17,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:10:17,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:10:17,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:10:17,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:17,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:17,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:10:17,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:10:17,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:10:17,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:12:42,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:12:42,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-11 01:12:43,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:12:43,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:12:43,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:12:43,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:12:43,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:12:43,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:12:43,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:12:43,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:12:43,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:12:43,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:12:43,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:12:43,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:12:43,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:13:49,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:13:50,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:13:50,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:13:50,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:13:50,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:13:50,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:13:50,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:13:50,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:13:50,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:13:50,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:13:50,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:13:50,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:13:50,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:13:50,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:17:49,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:17:49,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:17:49,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:17:49,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:17:49,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:17:49,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:17:49,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:17:49,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:17:49,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:17:49,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:17:49,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:17:49,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:17:49,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:17:49,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:18:03,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:03,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:03,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:03,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:03,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:03,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:03,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:18:03,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:03,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:03,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:03,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:18:03,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:18:03,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:18:20,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:18:21,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:21,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:21,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:21,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:21,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:18:21,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:18:21,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:18:21,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:21,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:21,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:18:21,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:18:21,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:18:21,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:20:43,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:20:44,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:20:44,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:20:44,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:20:44,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:20:44,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:20:44,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:20:44,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:20:44,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:20:44,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:20:44,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:20:44,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:20:44,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:20:44,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:29,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:29,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:29,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:29,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:29,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:29,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:29,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:29,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:21:29,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:29,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:29,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:29,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:29,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:21:29,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:44,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:45,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:45,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:45,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:45,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:45,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:21:45,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:21:45,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:21:45,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:45,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:45,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:21:45,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:21:45,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:21:45,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:22:03,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:22:03,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:22:03,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:22:03,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:22:03,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:22:03,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:22:03,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:22:03,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:22:03,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:22:03,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:22:03,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:22:03,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:22:03,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:26:39,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:39,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:39,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:39,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:39,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:39,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:39,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:26:39,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:39,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:39,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:39,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:26:39,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:26:39,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:26:52,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:26:52,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:52,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:52,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:52,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:52,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:26:52,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:26:52,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:26:52,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:52,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:52,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:26:52,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:26:52,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:26:52,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:29:08,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:29:08,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:29:08,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:29:08,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:29:08,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:29:08,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:29:08,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:29:08,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:29:08,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:29:08,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:29:08,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:29:08,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:29:08,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:31:58,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:31:58,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-11 01:31:58,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:31:58,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:31:58,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:31:58,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:31:58,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:31:58,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:31:58,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:31:58,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:31:58,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:31:58,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:31:58,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:31:58,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:31:58,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:20,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:20,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:20,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:20,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:20,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:20,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:20,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:20,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:32:20,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:20,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:20,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:20,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:20,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:32:20,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:40,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:40,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-11 01:32:40,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:40,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:40,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:40,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:40,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:32:40,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:32:40,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:32:40,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:40,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:40,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:32:40,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:32:40,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:32:40,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:33:46,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:33:46,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-11 01:33:46,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:33:46,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:33:46,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:33:46,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:33:46,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:33:46,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:33:46,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:33:46,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:33:46,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:33:46,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:33:46,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:33:46,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:33:46,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:34:33,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:34:34,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:34:34,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:34:34,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:34:34,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:34:34,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:34:34,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:34:34,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:34:34,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:34:34,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:34:34,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:34:34,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:34:34,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:34:34,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:35:23,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:35:23,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:35:23,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:35:24,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:35:24,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:35:24,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:35:24,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:35:24,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:35:24,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:35:24,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:35:24,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:35:24,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:35:24,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:35:24,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:36:36,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:36:37,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:36:37,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:36:37,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:36:37,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:36:37,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:36:37,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:36:37,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:36:37,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:36:37,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:36:37,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:36:37,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:36:37,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:36:37,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:37:13,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:37:13,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-11 01:37:13,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:37:13,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:37:13,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:37:13,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:37:13,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-11 01:37:13,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-11 01:37:13,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-11 01:37:13,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:37:13,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:37:13,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-11 01:37:13,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:37:13,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-11 01:37:13,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-11 01:38:41,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
