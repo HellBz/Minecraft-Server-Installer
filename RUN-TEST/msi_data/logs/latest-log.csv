@@ -1713,3 +1713,214 @@ Timestamp,Log Level,Message,Class,Method
 2024-09-11 01:37:13,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
 2024-09-11 01:37:13,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
 2024-09-11 01:38:41,WARNING,No input provided using default installer: 1,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-13 01:55:20,INFO,Starting the MainInstaller...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-13 01:55:20,INFO,Loading internal Installer-Modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-13 01:55:20,INFO,Loaded internal installer: MinecraftForgeInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-13 01:55:20,INFO,Loaded internal installer: MinecraftVanillaInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-13 01:55:20,INFO,Loaded internal installer: TestInstaller,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadInternalInstallers
+2024-09-13 01:55:20,INFO,Loading external JARs from msi_data/modules...,de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-13 01:55:20,INFO,Scanning directory: "msi_data/modules" ...,de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadExternalJars
+2024-09-13 01:55:20,INFO,Found external JAR: MinecraftForgeInstaller-1.0.0.jar - overwrite (MinecraftForgeInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-13 01:55:20,INFO,Found external JAR: MinecraftVanillaInstaller-1.0.0.jar - overwrite (MinecraftVanillaInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-13 01:55:20,INFO,Found external JAR: TestInstaller-1.0.0.jar - overwrite (TestInstaller),de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller,loadSingleJar
+2024-09-13 01:55:20,INFO,Available installers:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-13 01:55:20,INFO,1. Minecraft-FORGE    2. Minecraft-Vanilla  3. TestInstaller      ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:20,INFO,Select an installer (1-3): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectInstaller
+2024-09-13 01:55:29,INFO,Available versions:,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-13 01:55:29,INFO,[1] 24w37a                  [2] 24w36a                  [3] 24w35a                  [4] 24w34a                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[5] 24w33a                  [6] 1.21.1                  [7] 1.21.1-rc1              [8] 1.21                    ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[9] 1.21-rc1                [10] 1.21-pre4              [11] 1.21-pre3              [12] 1.21-pre2              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[13] 1.21-pre1              [14] 24w21b                 [15] 24w21a                 [16] 24w20a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[17] 24w19b                 [18] 24w19a                 [19] 24w18a                 [20] 1.20.6                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[21] 1.20.6-rc1             [22] 1.20.5                 [23] 1.20.5-rc3             [24] 1.20.5-rc2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[25] 1.20.5-rc1             [26] 1.20.5-pre4            [27] 1.20.5-pre3            [28] 1.20.5-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[29] 1.20.5-pre1            [30] 24w14a                 [31] 24w14potato            [32] 24w13a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[33] 24w12a                 [34] 24w11a                 [35] 24w10a                 [36] 24w09a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[37] 24w07a                 [38] 24w06a                 [39] 24w05b                 [40] 24w05a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[41] 24w04a                 [42] 24w03b                 [43] 24w03a                 [44] 23w51b                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[45] 23w51a                 [46] 1.20.4                 [47] 1.20.4-rc1             [48] 1.20.3                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[49] 1.20.3-rc1             [50] 1.20.3-pre4            [51] 1.20.3-pre3            [52] 1.20.3-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[53] 1.20.3-pre1            [54] 23w46a                 [55] 23w45a                 [56] 23w44a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[57] 23w43b                 [58] 23w43a                 [59] 23w42a                 [60] 23w41a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[61] 23w40a                 [62] 1.20.2                 [63] 1.20.2-rc2             [64] 1.20.2-rc1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[65] 1.20.2-pre4            [66] 1.20.2-pre3            [67] 1.20.2-pre2            [68] 1.20.2-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[69] 23w35a                 [70] 23w33a                 [71] 23w32a                 [72] 23w31a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[73] 1.20.1                 [74] 1.20.1-rc1             [75] 1.20                   [76] 1.20-rc1               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[77] 1.20-pre7              [78] 1.20-pre6              [79] 1.20-pre5              [80] 1.20-pre4              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[81] 1.20-pre3              [82] 1.20-pre2              [83] 1.20-pre1              [84] 23w18a                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[85] 23w17a                 [86] 23w16a                 [87] 23w14a                 [88] 23w13a_or_b            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[89] 23w13a                 [90] 23w12a                 [91] 1.19.4                 [92] 1.19.4-rc3             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[93] 1.19.4-rc2             [94] 1.19.4-rc1             [95] 1.19.4-pre4            [96] 1.19.4-pre3            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[97] 1.19.4-pre2            [98] 1.19.4-pre1            [99] 23w07a                 [100] 23w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[101] 23w05a                [102] 23w04a                [103] 23w03a                [104] 1.19.3                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[105] 1.19.3-rc3            [106] 1.19.3-rc2            [107] 1.19.3-rc1            [108] 1.19.3-pre3           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[109] 1.19.3-pre2           [110] 1.19.3-pre1           [111] 22w46a                [112] 22w45a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[113] 22w44a                [114] 22w43a                [115] 22w42a                [116] 1.19.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[117] 1.19.2-rc2            [118] 1.19.2-rc1            [119] 1.19.1                [120] 1.19.1-rc3            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[121] 1.19.1-rc2            [122] 1.19.1-pre6           [123] 1.19.1-pre5           [124] 1.19.1-pre4           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[125] 1.19.1-pre3           [126] 1.19.1-pre2           [127] 1.19.1-rc1            [128] 1.19.1-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[129] 22w24a                [130] 1.19                  [131] 1.19-rc2              [132] 1.19-rc1              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[133] 1.19-pre5             [134] 1.19-pre4             [135] 1.19-pre3             [136] 1.19-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[137] 1.19-pre1             [138] 22w19a                [139] 22w18a                [140] 22w17a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[141] 22w16b                [142] 22w16a                [143] 22w15a                [144] 22w14a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[145] 22w13oneblockatatime  [146] 22w13a                [147] 22w12a                [148] 22w11a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[149] 1.18.2                [150] 1.18.2-rc1            [151] 1.18.2-pre3           [152] 1.18.2-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[153] 1.18.2-pre1           [154] 22w07a                [155] 22w06a                [156] 22w05a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[157] 22w03a                [158] 1.18.1                [159] 1.18.1-rc3            [160] 1.18.1-rc2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[161] 1.18.1-rc1            [162] 1.18.1-pre1           [163] 1.18                  [164] 1.18-rc4              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[165] 1.18-rc3              [166] 1.18-rc2              [167] 1.18-rc1              [168] 1.18-pre8             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[169] 1.18-pre7             [170] 1.18-pre6             [171] 1.18-pre5             [172] 1.18-pre4             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[173] 1.18-pre3             [174] 1.18-pre2             [175] 1.18-pre1             [176] 21w44a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[177] 21w43a                [178] 21w42a                [179] 21w41a                [180] 21w40a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[181] 21w39a                [182] 21w38a                [183] 21w37a                [184] 1.17.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[185] 1.17.1-rc2            [186] 1.17.1-rc1            [187] 1.17.1-pre3           [188] 1.17.1-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[189] 1.17.1-pre1           [190] 1.17                  [191] 1.17-rc2              [192] 1.17-rc1              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[193] 1.17-pre5             [194] 1.17-pre4             [195] 1.17-pre3             [196] 1.17-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[197] 1.17-pre1             [198] 21w20a                [199] 21w19a                [200] 21w18a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[201] 21w17a                [202] 21w16a                [203] 21w15a                [204] 21w14a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[205] 21w13a                [206] 21w11a                [207] 21w10a                [208] 21w08b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[209] 21w08a                [210] 21w07a                [211] 21w06a                [212] 21w05b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[213] 21w05a                [214] 21w03a                [215] 1.16.5                [216] 1.16.5-rc1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[217] 20w51a                [218] 20w49a                [219] 20w48a                [220] 20w46a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[221] 20w45a                [222] 1.16.4                [223] 1.16.4-rc1            [224] 1.16.4-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[225] 1.16.4-pre1           [226] 1.16.3                [227] 1.16.3-rc1            [228] 1.16.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[229] 1.16.2-rc2            [230] 1.16.2-rc1            [231] 1.16.2-pre3           [232] 1.16.2-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[233] 1.16.2-pre1           [234] 20w30a                [235] 20w29a                [236] 20w28a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[237] 20w27a                [238] 1.16.1                [239] 1.16                  [240] 1.16-rc1              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[241] 1.16-pre8             [242] 1.16-pre7             [243] 1.16-pre6             [244] 1.16-pre5             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[245] 1.16-pre4             [246] 1.16-pre3             [247] 1.16-pre2             [248] 1.16-pre1             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[249] 20w22a                [250] 20w21a                [251] 20w20b                [252] 20w20a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[253] 20w19a                [254] 20w18a                [255] 20w17a                [256] 20w16a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[257] 20w15a                [258] 20w14a                [259] 20w14infinite         [260] 20w13b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[261] 20w13a                [262] 20w12a                [263] 20w11a                [264] 20w10a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[265] 20w09a                [266] 20w08a                [267] 20w07a                [268] 20w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[269] 1.15.2                [270] 1.15.2-pre2           [271] 1.15.2-pre1           [272] 1.15.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[273] 1.15.1-pre1           [274] 1.15                  [275] 1.15-pre7             [276] 1.15-pre6             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[277] 1.15-pre5             [278] 1.15-pre4             [279] 1.15-pre3             [280] 1.15-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[281] 1.15-pre1             [282] 19w46b                [283] 19w46a                [284] 19w45b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[285] 19w45a                [286] 19w44a                [287] 19w42a                [288] 19w41a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[289] 19w40a                [290] 19w39a                [291] 19w38b                [292] 19w38a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[293] 19w37a                [294] 19w36a                [295] 19w35a                [296] 19w34a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[297] 1.14.4                [298] 1.14.4-pre7           [299] 1.14.4-pre6           [300] 1.14.4-pre5           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[301] 1.14.4-pre4           [302] 1.14.4-pre3           [303] 1.14.4-pre2           [304] 1.14.4-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[305] 1.14.3                [306] 1.14.3-pre4           [307] 1.14.3-pre3           [308] 1.14.3-pre2           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[309] 1.14.3-pre1           [310] 1.14.2                [311] 1.14.2 Pre-Release 4  [312] 1.14.2 Pre-Release 3  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[313] 1.14.2 Pre-Release 2  [314] 1.14.2 Pre-Release 1  [315] 1.14.1                [316] 1.14.1 Pre-Release 2  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[317] 1.14.1 Pre-Release 1  [318] 1.14                  [319] 1.14 Pre-Release 5    [320] 1.14 Pre-Release 4    ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[321] 1.14 Pre-Release 3    [322] 1.14 Pre-Release 2    [323] 1.14 Pre-Release 1    [324] 19w14b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[325] 19w14a                [326] 3D Shareware v1.34    [327] 19w13b                [328] 19w13a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[329] 19w12b                [330] 19w12a                [331] 19w11b                [332] 19w11a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[333] 19w09a                [334] 19w08b                [335] 19w08a                [336] 19w07a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[337] 19w06a                [338] 19w05a                [339] 19w04b                [340] 19w04a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[341] 19w03c                [342] 19w03b                [343] 19w03a                [344] 19w02a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[345] 18w50a                [346] 18w49a                [347] 18w48b                [348] 18w48a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[349] 18w47b                [350] 18w47a                [351] 18w46a                [352] 18w45a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[353] 18w44a                [354] 18w43c                [355] 18w43b                [356] 18w43a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[357] 1.13.2                [358] 1.13.2-pre2           [359] 1.13.2-pre1           [360] 1.13.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[361] 1.13.1-pre2           [362] 1.13.1-pre1           [363] 18w33a                [364] 18w32a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[365] 18w31a                [366] 18w30b                [367] 18w30a                [368] 1.13                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[369] 1.13-pre10            [370] 1.13-pre9             [371] 1.13-pre8             [372] 1.13-pre7             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[373] 1.13-pre6             [374] 1.13-pre5             [375] 1.13-pre4             [376] 1.13-pre3             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[377] 1.13-pre2             [378] 1.13-pre1             [379] 18w22c                [380] 18w22b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[381] 18w22a                [382] 18w21b                [383] 18w21a                [384] 18w20c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[385] 18w20b                [386] 18w20a                [387] 18w19b                [388] 18w19a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[389] 18w16a                [390] 18w15a                [391] 18w14b                [392] 18w14a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[393] 18w11a                [394] 18w10d                [395] 18w10c                [396] 18w10b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[397] 18w10a                [398] 18w09a                [399] 18w08b                [400] 18w08a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[401] 18w07c                [402] 18w07b                [403] 18w07a                [404] 18w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[405] 18w05a                [406] 18w03b                [407] 18w03a                [408] 18w02a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[409] 18w01a                [410] 17w50a                [411] 17w49b                [412] 17w49a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[413] 17w48a                [414] 17w47b                [415] 17w47a                [416] 17w46a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[417] 17w45b                [418] 17w45a                [419] 17w43b                [420] 17w43a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[421] 1.12.2                [422] 1.12.2-pre2           [423] 1.12.2-pre1           [424] 1.12.1                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[425] 1.12.1-pre1           [426] 17w31a                [427] 1.12                  [428] 1.12-pre7             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[429] 1.12-pre6             [430] 1.12-pre5             [431] 1.12-pre4             [432] 1.12-pre3             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[433] 1.12-pre2             [434] 1.12-pre1             [435] 17w18b                [436] 17w18a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[437] 17w17b                [438] 17w17a                [439] 17w16b                [440] 17w16a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[441] 17w15a                [442] 17w14a                [443] 17w13b                [444] 17w13a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[445] 17w06a                [446] 1.11.2                [447] 1.11.1                [448] 16w50a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[449] 1.11                  [450] 1.11-pre1             [451] 16w44a                [452] 16w43a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[453] 16w42a                [454] 16w41a                [455] 16w40a                [456] 16w39c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[457] 16w39b                [458] 16w39a                [459] 16w38a                [460] 16w36a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[461] 16w35a                [462] 16w33a                [463] 16w32b                [464] 16w32a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[465] 1.10.2                [466] 1.10.1                [467] 1.10                  [468] 1.10-pre2             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[469] 1.10-pre1             [470] 16w21b                [471] 16w21a                [472] 16w20a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[473] 1.9.4                 [474] 1.9.3                 [475] 1.9.3-pre3            [476] 1.9.3-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[477] 1.9.3-pre1            [478] 16w15b                [479] 16w15a                [480] 16w14a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[481] 1.RV-Pre1             [482] 1.9.2                 [483] 1.9.1                 [484] 1.9.1-pre3            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[485] 1.9.1-pre2            [486] 1.9.1-pre1            [487] 1.9                   [488] 1.9-pre4              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[489] 1.9-pre3              [490] 1.9-pre2              [491] 1.9-pre1              [492] 16w07b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[493] 16w07a                [494] 16w06a                [495] 16w05b                [496] 16w05a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[497] 16w04a                [498] 16w03a                [499] 16w02a                [500] 15w51b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[501] 15w51a                [502] 15w50a                [503] 15w49b                [504] 1.8.9                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[505] 15w49a                [506] 15w47c                [507] 15w47b                [508] 15w47a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[509] 15w46a                [510] 15w45a                [511] 15w44b                [512] 15w44a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[513] 15w43c                [514] 15w43b                [515] 15w43a                [516] 15w42a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[517] 15w41b                [518] 15w41a                [519] 15w40b                [520] 15w40a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[521] 15w39c                [522] 15w39b                [523] 15w39a                [524] 15w38b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[525] 15w38a                [526] 15w37a                [527] 15w36d                [528] 15w36c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[529] 15w36b                [530] 15w36a                [531] 15w35e                [532] 15w35d                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[533] 15w35c                [534] 15w35b                [535] 15w35a                [536] 15w34d                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[537] 15w34c                [538] 15w34b                [539] 15w34a                [540] 15w33c                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[541] 15w33b                [542] 15w33a                [543] 15w32c                [544] 15w32b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[545] 15w32a                [546] 15w31c                [547] 15w31b                [548] 15w31a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[549] 1.8.8                 [550] 1.8.7                 [551] 1.8.6                 [552] 1.8.5                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[553] 1.8.4                 [554] 15w14a                [555] 1.8.3                 [556] 1.8.2                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[557] 1.8.2-pre7            [558] 1.8.2-pre6            [559] 1.8.2-pre5            [560] 1.8.2-pre4            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[561] 1.8.2-pre3            [562] 1.8.2-pre2            [563] 1.8.2-pre1            [564] 1.8.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[565] 1.8.1-pre5            [566] 1.8.1-pre4            [567] 1.8.1-pre3            [568] 1.8.1-pre2            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[569] 1.8.1-pre1            [570] 1.8                   [571] 1.8-pre3              [572] 1.8-pre2              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[573] 1.8-pre1              [574] 14w34d                [575] 14w34c                [576] 14w34b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[577] 14w34a                [578] 14w33c                [579] 14w33b                [580] 14w33a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[581] 14w32d                [582] 14w32c                [583] 14w32b                [584] 14w32a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[585] 14w31a                [586] 14w30c                [587] 14w30b                [588] 14w30a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[589] 14w29b                [590] 14w29a                [591] 14w28b                [592] 14w28a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[593] 14w27b                [594] 14w27a                [595] 14w26c                [596] 14w26b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[597] 14w26a                [598] 14w25b                [599] 14w25a                [600] 14w21b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[601] 14w21a                [602] 14w20b                [603] 14w20a                [604] 1.7.10                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[605] 1.7.10-pre4           [606] 1.7.10-pre3           [607] 1.7.10-pre2           [608] 1.7.10-pre1           ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[609] 14w19a                [610] 14w18b                [611] 14w18a                [612] 14w17a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[613] 14w11b                [614] 1.7.9                 [615] 1.7.8                 [616] 1.7.7                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[617] 1.7.6                 [618] 14w11a                [619] 1.7.6-pre2            [620] 1.7.6-pre1            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[621] 14w10c                [622] 14w10b                [623] 14w10a                [624] 14w08a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[625] 1.7.5                 [626] 14w07a                [627] 14w06b                [628] 14w06a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[629] 14w05b                [630] 14w05a                [631] 14w04b                [632] 14w04a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[633] 14w03b                [634] 14w03a                [635] 14w02c                [636] 14w02b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[637] 14w02a                [638] 1.7.4                 [639] 1.7.3                 [640] 13w49a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[641] 13w48b                [642] 13w48a                [643] 13w47e                [644] 13w47d                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[645] 13w47c                [646] 13w47b                [647] 13w47a                [648] 1.7.2                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[649] 1.7.1                 [650] 1.7                   [651] 13w43a                [652] 13w42b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[653] 13w42a                [654] 13w41b                [655] 13w41a                [656] 13w39b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[657] 13w39a                [658] 13w38c                [659] 13w38b                [660] 13w38a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[661] 1.6.4                 [662] 1.6.3                 [663] 13w37b                [664] 13w37a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[665] 13w36b                [666] 13w36a                [667] 1.6.2                 [668] 1.6.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[669] 1.6                   [670] 13w26a                [671] 13w25c                [672] 13w25b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[673] 13w25a                [674] 13w24b                [675] 13w24a                [676] 13w23b                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[677] 13w23a                [678] 13w22a                [679] 13w21b                [680] 13w21a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[681] 13w19a                [682] 13w18c                [683] 13w18b                [684] 13w18a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[685] 13w17a                [686] 1.5.2                 [687] 13w16b                [688] 13w16a                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[689] 1.5.1                 [690] 1.5                   [691] 1.4.7                 [692] 1.4.6                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[693] 1.4.5                 [694] 1.4.4                 [695] 1.4.3                 [696] 1.4.2                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[697] 1.4.1                 [698] 1.4                   [699] 1.3.2                 [700] 1.3.1                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[701] 1.3                   [702] 1.2.5                 [703] 1.2.4                 [704] 1.2.3                 ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[705] 1.2.2                 [706] 1.2.1                 [707] 1.1                   [708] 1.0                   ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[709] b1.8.1                [710] b1.8                  [711] b1.7.3                [712] b1.7.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[713] b1.7                  [714] b1.6.6                [715] b1.6.5                [716] b1.6.4                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[717] b1.6.3                [718] b1.6.2                [719] b1.6.1                [720] b1.6                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[721] b1.5_01               [722] b1.5                  [723] b1.4_01               [724] b1.4                  ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[725] b1.3_01               [726] b1.3b                 [727] b1.2_02               [728] b1.2_01               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[729] b1.2                  [730] b1.1_02               [731] b1.1_01               [732] b1.0.2                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[733] b1.0_01               [734] b1.0                  [735] a1.2.6                [736] a1.2.5                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[737] a1.2.4_01             [738] a1.2.3_04             [739] a1.2.3_02             [740] a1.2.3_01             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[741] a1.2.3                [742] a1.2.2b               [743] a1.2.2a               [744] a1.2.1_01             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[745] a1.2.1                [746] a1.2.0_02             [747] a1.2.0_01             [748] a1.2.0                ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[749] a1.1.2_01             [750] a1.1.2                [751] a1.1.0                [752] a1.0.17_04            ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[753] a1.0.17_02            [754] a1.0.16               [755] a1.0.15               [756] a1.0.14               ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[757] a1.0.11               [758] a1.0.5_01             [759] a1.0.4                [760] inf-20100618          ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[761] c0.30_01c             [762] c0.0.13a              [763] c0.0.13a_03           [764] c0.0.11a              ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[765] rd-161348             [766] rd-160052             [767] rd-20090515           [768] rd-132328             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,[769] rd-132211             ,de.hellbz.MinecraftServerInstaller.Data.Transform,printTable
+2024-09-13 01:55:29,INFO,Select a version (1-769): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectVersion
+2024-09-13 01:55:31,INFO,Enable auto-update? (yes/no): ,de.hellbz.MinecraftServerInstaller.Utils.InstallerUI,selectAutoUpdate
+2024-09-13 01:55:34,INFO,Auto-update is enabled. (This is a future feature),de.hellbz.MinecraftServerInstaller.MainInstaller,main
+2024-09-13 01:55:34,INFO,Installation process completed. Exiting.,de.hellbz.MinecraftServerInstaller.MainInstaller,main

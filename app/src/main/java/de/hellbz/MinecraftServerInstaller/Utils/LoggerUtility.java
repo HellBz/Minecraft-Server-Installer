@@ -45,6 +45,13 @@ public class LoggerUtility {
                 }
 
                 String logLevelName = record.getLevel().getLocalizedName();
+                String color = ConsoleColors.RESET;  // Default color
+
+                // Format INSTALL logs separately
+                if ("INSTALL".equals(record.getLoggerName())) {
+                    logLevelName = "INSTALL";
+                    color = ConsoleColors.PURPLE;  // Set a custom color for INSTALL
+                }
 
                 // Colorize log levels for console
                 if (record.getLevel() == Level.FINE) {
@@ -61,7 +68,7 @@ public class LoggerUtility {
 
                 // Format the message for console output
                 String formattedMessage = String.format(
-                        ConsoleColors.RESET + "[%1$tF %1$tT] " + logLevelName + ": %2$s" + ConsoleColors.RESET,
+                        ConsoleColors.RESET + "[%1$tF %1$tT] " + color + logLevelName + ": %2$s" + ConsoleColors.RESET,
                         record.getMillis(),
                         record.getMessage()
                 );
@@ -92,6 +99,13 @@ public class LoggerUtility {
                 logger.log(Level.SEVERE, "Failed to create CSV log handler", e);
             }
         }
+    }
+
+    // Custom method to log installation events
+    public static void install(String message) {
+        LogRecord record = new LogRecord(Level.INFO, message);  // Use INFO as the base level
+        record.setLoggerName("INSTALL");
+        logger.log(record);
     }
 
     // Method to update logger configuration dynamically
@@ -126,61 +140,6 @@ public class LoggerUtility {
             default:
                 System.err.println("Unknown log level: " + logLevel + ". Defaulting to INFO.");
                 return Level.INFO;
-        }
-    }
-
-    // CSVFileHandler for CSV formatting
-    public static class CSVFileHandler extends Handler {
-        private final FileWriter writer;
-
-        public CSVFileHandler(String fileName) throws IOException {
-            Path path = Paths.get(fileName);
-            this.writer = new FileWriter(path.toFile(), true);  // Append to the file
-
-            // Write CSV header if the file is new
-            if (path.toFile().length() == 0) {
-                writer.append("Timestamp,Log Level,Message,Class,Method\n");
-            }
-        }
-
-        @Override
-        public void publish(LogRecord record) {
-            if (!isLoggable(record)) {
-                return;
-            }
-
-            try {
-                String logEntry = String.format(
-                        "%1$tF %1$tT,%2$s,%3$s,%4$s,%5$s%n",
-                        record.getMillis(),
-                        record.getLevel(),
-                        record.getMessage().replaceAll("\\x1b\\[[\\d;]*m", "").replaceAll(",", ""),  // Remove colors and commas
-                        record.getSourceClassName(),
-                        record.getSourceMethodName()
-                );
-                writer.append(logEntry);
-                writer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void flush() {
-            try {
-                writer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void close() throws SecurityException {
-            try {
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
