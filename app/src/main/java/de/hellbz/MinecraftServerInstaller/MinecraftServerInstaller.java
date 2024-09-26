@@ -1,16 +1,16 @@
 package de.hellbz.MinecraftServerInstaller;
 
-import de.hellbz.MinecraftServerInstaller.Utils.ConfigHandler;
 import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.Attributes;
-import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.logging.Logger;
@@ -63,21 +63,21 @@ public interface MinecraftServerInstaller {
         return installers;
     }
 
-    static void loadExternalJars(String directoryPath, List<MinecraftServerInstaller> installers) {
-        logger.info("Scanning directory: \"" + directoryPath + "\" ...");
+    static void loadExternalJars(Path directoryPath, List<MinecraftServerInstaller> installers) {
+        logger.info("Scanning directory: \"" + directoryPath.toAbsolutePath() + "\" ...");
 
-        File externalPluginDir = new File(directoryPath);
-        if (externalPluginDir.exists() && externalPluginDir.isDirectory()) {
-            File[] externalJars = externalPluginDir.listFiles((dir, name) -> name.endsWith(".jar"));
-            if (externalJars != null && externalJars.length > 0) {
-                for (File jar : externalJars) {
-                    loadSingleJar(jar, installers);
-                }
-            } else {
-                logger.warning("No JAR files found in directory: \"" + directoryPath + "\".");
+        if (Files.exists(directoryPath) && Files.isDirectory(directoryPath)) {
+            try {
+                // Stream all the JAR files in the directory
+                Files.list(directoryPath)
+                        .filter(path -> path.toString().endsWith(".jar"))  // Filter for JAR files
+                        .forEach(jar -> loadSingleJar(jar.toFile(), installers));  // Convert to File and load
+
+            } catch (IOException e) {
+                logger.severe("Error reading directory: \"" + directoryPath + "\". " + e.getMessage());
             }
         } else {
-            logger.warning("Directory does not exist or is not a directory: \"" + directoryPath + "\".");
+            logger.warning("Directory does not exist or is not a directory: \"" + directoryPath.toAbsolutePath() + "\".");
         }
     }
 

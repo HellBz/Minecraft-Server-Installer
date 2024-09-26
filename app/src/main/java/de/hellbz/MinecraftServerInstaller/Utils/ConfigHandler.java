@@ -14,13 +14,15 @@ public class ConfigHandler {
     private static Properties properties = new Properties();  // Store loaded properties
 
     // Method to load properties from the config file
-    public static void loadConfig(String filePath) throws IOException {
+    public static void loadConfig() throws IOException {
 
         logger.info("Configuration loaded.");
-        Path configFilePath = Paths.get(filePath);
 
-        if (Files.exists(configFilePath)) {
-            properties.load(Files.newBufferedReader(configFilePath, StandardCharsets.UTF_8));
+        // Ensure directories are created before loading the config
+        createRequiredDirectories();
+
+        if (Files.exists(Config.configFilePath)) {
+            properties.load(Files.newBufferedReader(Config.configFilePath, StandardCharsets.UTF_8));
 
             // Set static variables in Config from properties
             Config.logToFile = Boolean.parseBoolean(properties.getProperty("logToFile", "true"));
@@ -29,30 +31,27 @@ public class ConfigHandler {
             Config.detailedLog = Boolean.parseBoolean(properties.getProperty("detailedLog", "false"));
 
 
-            logger.config("Configuration loaded from: " + configFilePath.toAbsolutePath());
+            logger.config("Configuration loaded from: " + Config.configFilePath.toAbsolutePath());
             LoggerUtility.updateLoggerConfig(Config.detailedLog, Config.logLevelConsole, Config.logLevelCSV, Config.logToFile);
 
 
         } else {
             logger.warning("Configuration file not found. Creating a default one.");
-            createDefaultConfig(filePath);
-            loadConfig(filePath);  // Reload the config after creating default
+            createDefaultConfig();
+            loadConfig();  // Reload the config after creating default
         }
     }
 
     // Method to copy the default config from resources to msi_data/config
-    public static void createDefaultConfig(String destinationPath) throws IOException {
-        Path configDirPath = Paths.get(Config.configFolder);
+    public static void createDefaultConfig() throws IOException {
 
         // Create the directory if it doesn't exist
-        if (!Files.exists(configDirPath)) {
-            Files.createDirectories(configDirPath);
+        if (!Files.exists(Config.configFolder)) {
+            Files.createDirectories(Config.configFolder);
         }
 
-        Path configFilePath = configDirPath.resolve("msi.conf");
-
         // Check if the config file already exists
-        if (!Files.exists(configFilePath)) {
+        if (!Files.exists(Config.configFilePath)) {
             // Load the default config from resources
             InputStream defaultConfigStream = ConfigHandler.class.getClassLoader().getResourceAsStream("default-msi.conf");
 
@@ -61,12 +60,36 @@ public class ConfigHandler {
             }
 
             // Copy the default config to the destination directory
-            Files.copy(defaultConfigStream, configFilePath, StandardCopyOption.REPLACE_EXISTING);
-            logger.config("Default configuration file copied to: " + configFilePath.toAbsolutePath());
+            Files.copy(defaultConfigStream, Config.configFilePath, StandardCopyOption.REPLACE_EXISTING);
+            logger.config("Default configuration file copied to: " + Config.configFilePath.toAbsolutePath());
         } else {
-            logger.config("Configuration file already exists at: " + configFilePath.toAbsolutePath());
+            logger.config("Configuration file already exists at: " + Config.configFilePath.toAbsolutePath());
         }
     }
+
+    // Method to create the directories if they don't exist
+    public static void createRequiredDirectories() throws IOException {
+            if (!Files.exists(Config.dataFolder)) {
+                Files.createDirectories(Config.dataFolder);
+                logger.info("Created data folder: " + Config.dataFolder.toAbsolutePath());
+            }
+            if (!Files.exists(Config.configFolder)) {
+                Files.createDirectories(Config.configFolder);
+                logger.info("Created config folder: " + Config.configFolder.toAbsolutePath());
+            }
+            if (!Files.exists(Config.logFolder)) {
+                Files.createDirectories(Config.logFolder);
+                logger.info("Created log folder: " + Config.logFolder.toAbsolutePath());
+            }
+            if (!Files.exists(Config.modulesFolder)) {
+                Files.createDirectories(Config.modulesFolder);
+                logger.info("Created modules folder: " + Config.modulesFolder.toAbsolutePath());
+            }
+            if (!Files.exists(Config.tempFolder)) {
+                Files.createDirectories(Config.tempFolder);
+                logger.info("Created temp folder: " + Config.tempFolder.toAbsolutePath());
+            }
+        }
 
     // Update or add a property in the config file
     public static void updateProperty(String propertiesFilePath, String key, String newValue) throws IOException {

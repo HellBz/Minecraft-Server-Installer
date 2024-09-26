@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import de.hellbz.MinecraftServerInstaller.Utils.Config;
+import de.hellbz.MinecraftServerInstaller.Utils.FileOperation;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,18 +28,25 @@ public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
     @Override
     public String[] getAvailableVersions() {
 
-        // URL zur JSON-Datei
-        String url = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
-        // JSON-Daten von der URL abrufen
-        String json = null;
-        try {
-            json = fetchJsonFromUrl(url);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        // Definiere den Pfad zur Cache-Datei
+        String cacheFile = Config.tempFolder.resolve("minecraft_versions.json").toAbsolutePath().toString();
+
+        // Verwende FileOperation, um die Datei herunterzuladen und zu cachen
+        FileOperation downloadResult = FileOperation.getFile("https://launchermeta.mojang.com/mc/game/version_manifest.json")
+                .fetch()
+                .cache(60000, cacheFile);  // Prüft den Cache und lädt die Datei nur neu, wenn der Cache abgelaufen ist
+
+        // Überprüfe den ResponseCode, um zu sehen, ob die Datei aus dem Cache oder von der URL geladen wurde
+        if (downloadResult.getResponseCode() == 200) {
+            System.out.println("File successfully fetched from URL and saved.");
+        } else if (downloadResult.getResponseCode() == 304) {
+            System.out.println("File loaded from cache.");
+        } else {
+            System.out.println("Failed to fetch the file. Response code: " + downloadResult.getResponseCode());
         }
 
         // JSON parsen und "versions" Array extrahieren
-        JSONObject jsonObj = new JSONObject(json);
+        JSONObject jsonObj = new JSONObject(downloadResult.getContent());
         JSONArray versionsArray = jsonObj.getJSONArray("versions");
 
         // String-Array für die "id"-Werte

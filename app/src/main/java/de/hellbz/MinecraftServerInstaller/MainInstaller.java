@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+// https://chatgpt.com/c/69609c43-014f-47da-8556-cb95b05d6f38
+
 public class MainInstaller {
 
     public static void main(String[] args) {
@@ -31,12 +33,12 @@ public class MainInstaller {
                 "|   Installer   |  | Steam:     https://s.team/u/hellbz\n" +
                 "|"+ cVersion + "| /  Facebook:  https://fb.com/hellbz\n" +
                 "|_______________|/   Instagram: https://instagram.com/h3llbz\n\n" +
-                        "------------------------------------------------------------");
+                "------------------------------------------------------------");
 
 
         // Load configuration at the start
         try {
-            ConfigHandler.loadConfig(Config.configFilePath);
+            ConfigHandler.loadConfig();
         } catch (IOException e) {
             logger.severe("Error loading configuration: " + e.getMessage());
         }
@@ -50,7 +52,7 @@ public class MainInstaller {
 
             // 2. Load external JARs
             logger.info("Loading external JARs from " + Config.modulesFolder + "...");
-            MinecraftServerInstaller.loadExternalJars(Config.modulesFolder, installers);
+            MinecraftServerInstaller.loadExternalJars( Config.modulesFolder, installers);
 
             // Check if any installers were loaded
             if (installers.isEmpty()) {

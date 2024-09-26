@@ -11,8 +11,7 @@ import java.util.logging.LogRecord;
 public class CSVFileHandler extends Handler {
     private final FileWriter writer;
 
-    public CSVFileHandler(String fileName) throws IOException {
-        Path path = Paths.get(fileName);
+    public CSVFileHandler(Path path) throws IOException {
         this.writer = new FileWriter(path.toFile(), true);  // Append to the file
 
         // Write CSV header if the file is new
