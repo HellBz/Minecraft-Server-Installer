@@ -1,6 +1,6 @@
 package de.hellbz.MinecraftServerInstaller;
 
-import de.hellbz.MinecraftServerInstaller.Utils.Config;
+import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.Utils.FileOperation;
 import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 import org.json.JSONObject;

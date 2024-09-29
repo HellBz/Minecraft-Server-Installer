@@ -1,6 +1,7 @@
-package de.hellbz.MinecraftServerInstaller.Utils;
+package de.hellbz.MinecraftServerInstaller.Data;
 
 import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
+import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-import static de.hellbz.MinecraftServerInstaller.Data.Transform.printTable;
+import static de.hellbz.MinecraftServerInstaller.Data.DataTablePrinter.printTable;
 
 public class InstallerUI {
 

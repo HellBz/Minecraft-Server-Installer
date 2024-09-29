@@ -1,5 +1,7 @@
 package de.hellbz.MinecraftServerInstaller.Utils;
 
+import de.hellbz.MinecraftServerInstaller.Data.Config;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;

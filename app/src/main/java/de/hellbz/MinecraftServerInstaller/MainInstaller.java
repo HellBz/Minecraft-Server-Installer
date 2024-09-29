@@ -1,9 +1,9 @@
 package de.hellbz.MinecraftServerInstaller;
 
-import de.hellbz.MinecraftServerInstaller.Utils.Config;
+import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.Utils.ConfigHandler;
 import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
-import de.hellbz.MinecraftServerInstaller.Utils.InstallerUI;
+import de.hellbz.MinecraftServerInstaller.Data.InstallerUI;
 
 import java.io.IOException;
 import java.util.ArrayList;

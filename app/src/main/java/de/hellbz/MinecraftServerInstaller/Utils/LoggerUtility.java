@@ -1,12 +1,9 @@
 package de.hellbz.MinecraftServerInstaller.Utils;
 
-import java.io.FileWriter;
+import de.hellbz.MinecraftServerInstaller.Data.Config;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;

@@ -1,4 +1,7 @@
-package de.hellbz.MinecraftServerInstaller.Utils;
+package de.hellbz.MinecraftServerInstaller.Data;
+
+import de.hellbz.MinecraftServerInstaller.Utils.ConfigHandler;
+import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 
 import java.io.IOException;
 import java.nio.file.Path;

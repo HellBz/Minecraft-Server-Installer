@@ -5,10 +5,10 @@ import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class Transform {
+public class DataTablePrinter {
 
     // Initialize LoggerUtility after the config is loaded
-    static Logger logger = LoggerUtility.getLogger(Transform.class);
+    static Logger logger = LoggerUtility.getLogger(DataTablePrinter.class);
 
     public static void printTable(List<String> items, int numColumns, String prefix, String suffix) {
         int maxLength = 0;
@@ -38,7 +38,6 @@ public class Transform {
             }
         }
     }
-
 
     // Überladene Methode für den Standardfall (3 Spalten, ohne Präfix und Suffix)
     public static void printTable(List<String> items) {

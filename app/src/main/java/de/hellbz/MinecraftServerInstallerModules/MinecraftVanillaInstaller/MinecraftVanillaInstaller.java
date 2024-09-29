@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import de.hellbz.MinecraftServerInstaller.Utils.Config;
+import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.Utils.FileOperation;
 import org.json.JSONArray;
 import org.json.JSONObject;
