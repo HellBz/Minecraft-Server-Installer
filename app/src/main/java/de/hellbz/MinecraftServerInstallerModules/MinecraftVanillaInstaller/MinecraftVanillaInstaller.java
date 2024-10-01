@@ -2,18 +2,35 @@ package de.hellbz.MinecraftServerInstallerModules.MinecraftVanillaInstaller;
 
 import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.Utils.FileOperation;
+import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import static de.hellbz.MinecraftServerInstaller.Utils.FileOperation.resolveBaseToFolder;
+
 // Implementierung des Vanilla-Installers
 public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
+
+    String className = this.getClass().getSimpleName();
+
+    // Definiere den Pfad zur Cache-Datei
+    String cacheFile = Config.tempFolder.resolve( className + "_versions.json").toAbsolutePath().toString();
+
+    String versionFileURL = "https://piston-meta.mojang.com/mc/game/version_manifest.json";
+
+    // Initialize LoggerUtility after the config is loaded
+    Logger logger = LoggerUtility.getLogger(MinecraftVanillaInstaller.class);
 
     @Override
     public void init() {
@@ -26,62 +43,130 @@ public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
     }
 
     @Override
+    public String[] getAvailableTypes() {
+        return new String[] {"Release", "Snapshot", "All"};
+    }
+
+    @Override
     public String[] getAvailableVersions() {
 
-        // Definiere den Pfad zur Cache-Datei
-        String cacheFile = Config.tempFolder.resolve("minecraft_versions.json").toAbsolutePath().toString();
-
         // Verwende FileOperation, um die Datei herunterzuladen und zu cachen
-        FileOperation downloadResult = FileOperation.getFile("https://launchermeta.mojang.com/mc/game/version_manifest.json")
+        FileOperation downloadResult = FileOperation.getFile(versionFileURL)
                 .fetch()
                 .cache(60000, cacheFile);  // Prüft den Cache und lädt die Datei nur neu, wenn der Cache abgelaufen ist
 
         // Überprüfe den ResponseCode, um zu sehen, ob die Datei aus dem Cache oder von der URL geladen wurde
         if (downloadResult.getResponseCode() == 200) {
-            System.out.println("File successfully fetched from URL and saved.");
+            logger.info("File successfully fetched from URL and saved.");
         } else if (downloadResult.getResponseCode() == 304) {
-            System.out.println("File loaded from cache.");
+            logger.info("File loaded from cache.");
         } else {
-            System.out.println("Failed to fetch the file. Response code: " + downloadResult.getResponseCode());
+            logger.severe("Failed to fetch the file. Response code: " + downloadResult.getResponseCode());
         }
 
         // JSON parsen und "versions" Array extrahieren
         JSONObject jsonObj = new JSONObject(downloadResult.getContent());
         JSONArray versionsArray = jsonObj.getJSONArray("versions");
 
-        // String-Array für die "id"-Werte
-        String[] versionIds = new String[versionsArray.length()];
+        // Verwende eine dynamische Liste anstelle eines Arrays
+        List<String> versionIds = new ArrayList<>();
 
         // Durch das "versions" Array iterieren und die "id" Werte extrahieren
         for (int i = 0; i < versionsArray.length(); i++) {
             JSONObject versionObj = versionsArray.getJSONObject(i);
-            versionIds[i] = versionObj.getString("id");
+            String type = versionObj.getString("type");
+
+            // Überprüfe den globalen Filter Config.selectedType
+            if ("all".equalsIgnoreCase(Config.selectedType) || type.equalsIgnoreCase(Config.selectedType)) {
+                versionIds.add(versionObj.getString("id"));  // Dynamisch in die Liste einfügen
+            }
+
         }
-        return versionIds;
+        // Konvertiere die dynamische Liste in ein Array und gib es zurück
+        return versionIds.toArray(new String[0]);
     }
 
     @Override
-    public String[] getAvailableSubVersions(String mainVersion) {
-        return new String[0];  // Keine Sub-Versionen für Vanilla
+    public String[] getAvailableSubVersions() {
+        return new String[0];  // No sub-versions for Vanilla.
     }
 
-    // Funktion zum Abrufen des JSON-Inhalts von einer URL
-    private static String fetchJsonFromUrl(String urlString) throws Exception {
-        StringBuilder result = new StringBuilder();
-        URL url = new URL(urlString);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                result.append(line);
+    @Override
+    public Pattern getStartFile() {
+        String patternString = ".*(server|minecraft_server)\\.jar";
+        return Pattern.compile(patternString);
+    }
+
+    @Override
+    public void install() {
+         logger.info("Installing Vanilla Minecraft version: " + Config.selectedVersion);
+
+        // Verwende FileOperation, um die Datei herunterzuladen und zu cachen
+        FileOperation downloadResult = FileOperation.getFile("https://piston-meta.mojang.com/mc/game/version_manifest.json")
+                .fetch()
+                .cache(60000, cacheFile );  // Prüft den Cache und lädt die Datei nur neu, wenn der Cache abgelaufen ist
+
+        // Überprüfe den ResponseCode
+        if (downloadResult.getResponseCode() != 200 && downloadResult.getResponseCode() != 304) {
+            logger.severe ("Failed to fetch the version manifest file. Response code: " + downloadResult.getResponseCode());
+            return;
+        }
+
+        // JSON parsen und das "versions" Array extrahieren
+        JSONObject jsonObj = new JSONObject(downloadResult.getContent());
+        JSONArray versionsArray = jsonObj.getJSONArray("versions");
+
+        // Durch das "versions" Array iterieren, um die passende Version zu finden
+        for (int i = 0; i < versionsArray.length(); i++) {
+            JSONObject versionObj = versionsArray.getJSONObject(i);
+
+            // Wenn die "id" der gesuchten Version entspricht
+            if (versionObj.getString("id").equals(Config.selectedVersion)) {
+                String type = versionObj.getString("type");
+                String versionUrl = versionObj.getString("url");
+                String time = versionObj.getString("time");
+                String releaseTime = versionObj.getString("releaseTime");
+
+                System.out.println("Version ID: " + Config.selectedVersion);
+                System.out.println("Type: " + type);
+                System.out.println("URL: " + versionUrl);
+                System.out.println("Time: " + time);
+                System.out.println("Release Time: " + releaseTime);
+
+                // Jetzt die URL aufrufen, um weitere Daten zu holen
+                FileOperation versionDetailsDownload = FileOperation.getFile(versionUrl)
+                        .fetch();
+
+                if (versionDetailsDownload.getResponseCode() == 200) {
+                    JSONObject versionDetails = new JSONObject(versionDetailsDownload.getContent());
+
+                    // Beispiel: Die "downloads -> server -> url" Information extrahieren
+                    if (versionDetails.has("downloads")) {
+                        JSONObject downloads = versionDetails.getJSONObject("downloads");
+                        if (downloads.has("server")) {
+                            String serverDownloadUrl = downloads.getJSONObject("server").getString("url");
+                            logger.info("Server download URL: " + serverDownloadUrl);
+
+                            String targetFile = resolveBaseToFolder(Config.rootFolder, serverDownloadUrl);
+                            // Lade die Datei herunter und speichere sie im richtigen Verzeichnis
+                            FileOperation.getFile(serverDownloadUrl).fetchBinary().saveTo( targetFile );
+                        } else {
+                            logger.warning("No server download available for this version.");
+                        }
+                    } else {
+                        logger.warning("No downloads section available in the version details.");
+                    }
+                } else {
+                    logger.severe("Failed to fetch version details. Response code: " + versionDetailsDownload.getResponseCode());
+                }
+                break;  // Version gefunden, Schleife abbrechen
             }
         }
-        return result.toString();
     }
 
     @Override
-    public void install(String version, String subVersion) {
-        System.out.println("Installing Vanilla Minecraft version: " + version);
+    public void start() {
+
     }
+
 }

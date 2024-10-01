@@ -1,6 +1,7 @@
 package de.hellbz.MinecraftServerInstaller.Utils;
 
 import de.hellbz.MinecraftServerInstaller.Data.Config;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -110,5 +111,17 @@ public class ConfigHandler {
         }
 
         logger.config("Property updated: " + key + " = " + newValue);
+    }
+
+    // Methode, die die aktuelle Version ausliest
+    public static String getLocalVersion() {
+        FileOperation result = FileOperation.getFile("/installerInfo.json").noLog().fetch();  // Reads the file from the resources folder
+
+        // Überprüfe den ResponseCode und lese die Datei, falls erfolgreich
+        if (result.getResponseCode() == 200) {
+            return new JSONObject(result.getContent()).optString("version", "0.0.0");
+        }
+
+        return "0.0.0";
     }
 }

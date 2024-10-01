@@ -17,7 +17,7 @@ public class InstallerUI {
     private static final Logger logger = LoggerUtility.getLogger(InstallerUI.class);
 
     // Method to select an installer from the list
-    public static MinecraftServerInstaller selectInstaller(List<MinecraftServerInstaller> installers) {
+    public static void selectInstaller(List<MinecraftServerInstaller> installers) {
         logger.info("Available installers:");
         List<String> installerNames = new ArrayList<>();
         for (MinecraftServerInstaller installer : installers) {
@@ -34,12 +34,31 @@ public class InstallerUI {
             installerChoice = 1; // Default choice
             logger.warning("No input provided, using default installer: " + installerChoice);
         }
-        return installers.get(installerChoice - 1);
+        Config.selectedInstaller = installers.get(installerChoice - 1);
+    }
+    // Method to select the Version-Type from the installer
+    public static void selectType() {
+        List<String> availableTypes = Arrays.asList(Config.selectedInstaller.getAvailableTypes());
+        if (!availableTypes.isEmpty()) {
+            logger.info("Available Types:");
+            printTable(availableTypes, 4, "[", "]");
+
+            logger.info("Select a Type (1-" + availableTypes.size() + "): ");
+            Scanner scanner = new Scanner(System.in);
+            int subVersionChoice;
+            try {
+                subVersionChoice = scanner.nextInt();
+            } catch (NoSuchElementException e) {
+                subVersionChoice = 1; // Default choice
+                logger.warning("No input provided, using default subVersion: " + subVersionChoice);
+            }
+            Config.selectedType = availableTypes.get(subVersionChoice - 1);
+        }
     }
 
     // Method to select a version from the installer
-    public static String selectVersion(MinecraftServerInstaller installer) {
-        List<String> availableVersions = Arrays.asList(installer.getAvailableVersions());
+    public static void selectVersion() {
+        List<String> availableVersions = Arrays.asList(Config.selectedInstaller.getAvailableVersions());
         logger.info("Available versions:");
         printTable(availableVersions, 4, "[", "]");
 
@@ -52,12 +71,12 @@ public class InstallerUI {
             versionChoice = 1; // Default choice
             logger.warning("No input provided, using default version: " + versionChoice);
         }
-        return availableVersions.get(versionChoice - 1);
+        Config.selectedVersion =  availableVersions.get(versionChoice - 1);
     }
 
     // Method to select a subversion if available
-    public static String selectSubVersion(MinecraftServerInstaller installer, String version) {
-        List<String> availableSubVersions = Arrays.asList(installer.getAvailableSubVersions(version));
+    public static void selectSubVersion() {
+        List<String> availableSubVersions = Arrays.asList(Config.selectedInstaller.getAvailableSubVersions());
         if (!availableSubVersions.isEmpty()) {
             logger.info("Available subversions:");
             printTable(availableSubVersions, 4, "[", "]");
@@ -71,14 +90,12 @@ public class InstallerUI {
                 subVersionChoice = 1; // Default choice
                 logger.warning("No input provided, using default subVersion: " + subVersionChoice);
             }
-            return availableSubVersions.get(subVersionChoice - 1);
-        } else {
-            return null;
+            Config.selectedSubVersion =  availableSubVersions.get(subVersionChoice - 1);
         }
     }
 
     // Method to select auto-update option
-    public static boolean selectAutoUpdate() {
+    public static void selectAutoUpdate() {
         logger.info("Enable auto-update? (yes/no): ");
         Scanner scanner = new Scanner(System.in);
         String autoUpdateChoice;
@@ -88,6 +105,6 @@ public class InstallerUI {
             autoUpdateChoice = "no"; // Default choice
             logger.warning("No input provided, using default choice: " + autoUpdateChoice);
         }
-        return autoUpdateChoice.equalsIgnoreCase("yes");
+        Config.selectedAutoUpdate = autoUpdateChoice.equalsIgnoreCase("yes");
     }
 }

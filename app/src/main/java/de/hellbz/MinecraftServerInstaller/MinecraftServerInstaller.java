@@ -14,15 +14,21 @@ import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 // Schnittstelle für MinecraftServerInstaller
 public interface MinecraftServerInstaller {
 
     void init();
     String getInstallerName();
+    String[] getAvailableTypes();
     String[] getAvailableVersions();
-    String[] getAvailableSubVersions(String mainVersion);
-    void install(String version, String subVersion);
+    String[] getAvailableSubVersions();
+
+    Pattern getStartFile();
+
+    void install();
+    void start();
 
     // Get Logger instance from LoggerUtility
     static final Logger logger = LoggerUtility.getLogger(MinecraftServerInstaller.class);
@@ -156,6 +162,7 @@ public interface MinecraftServerInstaller {
             return null;
         }
     }
+
 
 }
 

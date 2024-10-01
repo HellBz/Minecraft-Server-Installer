@@ -1,5 +1,6 @@
 package de.hellbz.MinecraftServerInstaller.Data;
 
+import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
 import de.hellbz.MinecraftServerInstaller.Utils.ConfigHandler;
 import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 
@@ -12,10 +13,23 @@ public class Config {
 
     // Get Logger instance from LoggerUtility
     private static final Logger logger = LoggerUtility.getLogger(Config.class);
+
+    public static String appVersion = ConfigHandler.getLocalVersion();
+
     private static boolean isConfigLoaded = false;  // Flag to check if config is loaded
 
+
+    public static MinecraftServerInstaller selectedInstaller;
+    public static String selectedType;
+    public static String selectedVersion;
+    public static String selectedSubVersion;
+    public static Boolean selectedAutoUpdate;
+
+    // Define the base root folder
+    public static Path rootFolder = Paths.get(".").toAbsolutePath().normalize();
+
     // Define the base data folder
-    public static Path dataFolder = Paths.get("msi_data");  // This can be adjusted as needed
+    public static Path dataFolder = rootFolder.resolve("msi_data");  // This can be adjusted as needed
 
     // Define subfolders for better structure using Paths.get()
     public static Path configFolder = dataFolder.resolve("config");

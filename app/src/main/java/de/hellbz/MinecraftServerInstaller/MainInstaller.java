@@ -2,8 +2,10 @@ package de.hellbz.MinecraftServerInstaller;
 
 import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.Utils.ConfigHandler;
+import de.hellbz.MinecraftServerInstaller.Utils.FileOperation;
 import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
 import de.hellbz.MinecraftServerInstaller.Data.InstallerUI;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,9 +22,7 @@ public class MainInstaller {
         Logger logger = LoggerUtility.getLogger(MainInstaller.class);
 
 
-        String version = "v 1.2.45"; // Beispiel-Version
-        String cVersion = centerText( version, 15);
-
+        String cVersion = centerText( Config.appVersion, 15);
 
         System.out.println("\n" +
                 "   ________________  \n" +
@@ -61,31 +61,39 @@ public class MainInstaller {
             }
 
             // 3. Installer selection
-            MinecraftServerInstaller selectedInstaller = InstallerUI.selectInstaller(installers);
+            InstallerUI.selectInstaller(installers);
+
+            // 3.5. Version selection
+            InstallerUI.selectType();
 
             // 4. Version selection
-            String selectedVersion = InstallerUI.selectVersion(selectedInstaller);
+            InstallerUI.selectVersion();
 
             // 5. Subversion selection (if available)
-            String selectedSubVersion = InstallerUI.selectSubVersion(selectedInstaller, selectedVersion);
+            InstallerUI.selectSubVersion();
 
             // 6. Auto-update selection
-            boolean autoUpdate = InstallerUI.selectAutoUpdate();
+            InstallerUI.selectAutoUpdate();
 
             // 7. Start installation
-            selectedInstaller.init();
-            selectedInstaller.install(selectedVersion, selectedSubVersion);
+            Config.selectedInstaller.init();
+
+
 
             // Log auto-update option
-            if (autoUpdate) {
+            if (Config.selectedAutoUpdate) {
                 logger.info("Auto-update is enabled. (This is a future feature)");
             } else {
                 logger.info("Auto-update is disabled.");
             }
 
+            Config.selectedInstaller.install();
+            Config.selectedInstaller.start();
+
+
         } catch (Exception e) {
             logger.severe("An error occurred: " + e.getMessage());
-            e.printStackTrace();
+            //e.printStackTrace();
         } finally {
             logger.info("Installation process completed. Exiting.");
             System.exit(0);
