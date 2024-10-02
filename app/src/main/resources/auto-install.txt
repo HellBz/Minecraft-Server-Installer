@@ -1,0 +1,13 @@
+# Auto-Install Configuration
+
+# Specify your desired Minecraft-Version.
+# Possible options are [Version like: "1.20.4" or "latest"]
+Installer=MinecraftVanilla
+
+# Specify your desired LoaderType.
+# Possible options are ["Release" or "Snapshot" or "All"]
+Type=NeoForge
+
+# Specify your desired Loader-Version.
+# Possible options are [Version like: "20.4.164-beta" or "latest" or "recommended"]
+Version=latest

@@ -1,4 +1,4 @@
-package de.hellbz.MinecraftServerInstallerModules.MinecraftForgeInstaller;
+package de.hellbz.MinecraftServerInstaller.Modules.MinecraftForge;
 
 import de.hellbz.MinecraftServerInstaller.Data.Config;
 import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
@@ -6,7 +6,7 @@ import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
 import java.util.regex.Pattern;
 
 // Implementierung des Forge-Installers
-public class MinecraftForgeInstaller implements MinecraftServerInstaller {
+public class MinecraftForge implements MinecraftServerInstaller {
 
     @Override
     public void init() {

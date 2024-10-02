@@ -9,8 +9,10 @@ import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.Attributes;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.logging.Logger;
@@ -37,7 +39,7 @@ public interface MinecraftServerInstaller {
         List<MinecraftServerInstaller> installers = new ArrayList<>();
 
         try {
-            String packageName = "de.hellbz.MinecraftServerInstallerModules";
+            String packageName = "de.hellbz.MinecraftServerInstaller.Modules";
             String path = packageName.replace('.', '/');
             URL resource = MainInstaller.class.getClassLoader().getResource(path);
 
@@ -55,7 +57,33 @@ public interface MinecraftServerInstaller {
                                 if (MinecraftServerInstaller.class.isAssignableFrom(clazz)) {
                                     MinecraftServerInstaller installer = (MinecraftServerInstaller) clazz.getDeclaredConstructor().newInstance();
                                     installers.add(installer);
-                                    logger.info("Loaded internal installer: " + subdirName );
+                                    logger.info("Loaded internal installer: " + subdirName);
+                                }
+                            }
+                        }
+                    }
+                } else if (resource.getProtocol().equals("jar")) {
+                    // Läuft innerhalb einer JAR-Datei
+                    String jarPath = resource.getPath().substring(5, resource.getPath().indexOf("!"));
+                    try (JarFile jarFile = new JarFile(jarPath)) {
+                        Enumeration<JarEntry> entries = jarFile.entries();
+                        while (entries.hasMoreElements()) {
+                            JarEntry entry = entries.nextElement();
+                            String entryName = entry.getName();
+                            if (entryName.startsWith(path) && entryName.endsWith(".class")) {
+                                String relativePath = entryName.substring(path.length() + 1);
+                                int slashIndex = relativePath.indexOf('/');
+                                if (slashIndex != -1) {
+                                    String subdirName = relativePath.substring(0, slashIndex);
+                                    String className = packageName + '.' + subdirName + '.' + subdirName;
+                                    if (relativePath.equals(subdirName + "/" + subdirName + ".class")) {
+                                        Class<?> clazz = Class.forName(className);
+                                        if (MinecraftServerInstaller.class.isAssignableFrom(clazz)) {
+                                            MinecraftServerInstaller installer = (MinecraftServerInstaller) clazz.getDeclaredConstructor().newInstance();
+                                            installers.add(installer);
+                                            logger.info("Loaded internal installer: " + className);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -95,7 +123,7 @@ public interface MinecraftServerInstaller {
             externalInstaller = loadInstallerFromJar(jar);
             if (externalInstaller != null) {
                 String externalClassName = externalInstaller.getClass().getName();
-                if (externalClassName.startsWith("de.hellbz.MinecraftServerInstallerModules")) {
+                if (externalClassName.startsWith("de.hellbz.MinecraftServerInstaller.Modules")) {
                     status = handleJarReplacement(externalInstaller, externalClassName, installers);
                 } else {
                     status = "skipped (not in the allowed package)";

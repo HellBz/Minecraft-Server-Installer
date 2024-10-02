@@ -78,8 +78,6 @@ public class MainInstaller {
             // 7. Start installation
             Config.selectedInstaller.init();
 
-
-
             // Log auto-update option
             if (Config.selectedAutoUpdate) {
                 logger.info("Auto-update is enabled. (This is a future feature)");

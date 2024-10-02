@@ -1,11 +1,7 @@
-package de.hellbz.MinecraftServerInstallerModules.MinecraftVanillaInstaller;
+package de.hellbz.MinecraftServerInstaller.Modules.MinecraftVanilla;
 
 import de.hellbz.MinecraftServerInstaller.MinecraftServerInstaller;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -20,7 +16,7 @@ import org.json.JSONObject;
 import static de.hellbz.MinecraftServerInstaller.Utils.FileOperation.resolveBaseToFolder;
 
 // Implementierung des Vanilla-Installers
-public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
+public class MinecraftVanilla implements MinecraftServerInstaller {
 
     String className = this.getClass().getSimpleName();
 
@@ -30,7 +26,7 @@ public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
     String versionFileURL = "https://piston-meta.mojang.com/mc/game/version_manifest.json";
 
     // Initialize LoggerUtility after the config is loaded
-    Logger logger = LoggerUtility.getLogger(MinecraftVanillaInstaller.class);
+    Logger logger = LoggerUtility.getLogger(MinecraftVanilla.class);
 
     @Override
     public void init() {
@@ -134,8 +130,7 @@ public class MinecraftVanillaInstaller implements MinecraftServerInstaller {
                 System.out.println("Release Time: " + releaseTime);
 
                 // Jetzt die URL aufrufen, um weitere Daten zu holen
-                FileOperation versionDetailsDownload = FileOperation.getFile(versionUrl)
-                        .fetch();
+                FileOperation versionDetailsDownload = FileOperation.getFile(versionUrl).fetch();
 
                 if (versionDetailsDownload.getResponseCode() == 200) {
                     JSONObject versionDetails = new JSONObject(versionDetailsDownload.getContent());

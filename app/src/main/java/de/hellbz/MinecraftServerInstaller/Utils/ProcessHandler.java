@@ -1,8 +1,6 @@
 package de.hellbz.MinecraftServerInstaller.Utils;
 
 import de.hellbz.MinecraftServerInstaller.Data.Config;
-import de.hellbz.MinecraftServerInstaller.Utils.LoggerUtility;
-import de.hellbz.MinecraftServerInstallerModules.MinecraftVanillaInstaller.MinecraftVanillaInstaller;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,10 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.lang.management.ManagementFactory;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class ProcessHandler {
@@ -92,34 +87,37 @@ public class ProcessHandler {
         return this;
     }
 
+    // Method to disable console input
+    public ProcessHandler disableInput() {
+        this.disableInput = true;
+        return this;  // Return this to allow method chaining
+    }
+
     // Start the process
     public Process start() throws IOException {
         List<String> command = buildCommand();
-
         ProcessBuilder processBuilder = new ProcessBuilder(command);
 
         // Set the working directory (use Config.rootFolder if not set)
         processBuilder.directory(new File(workDir));
 
-        // Disable user input if the option is enabled
+        // Konsoleingabe steuern (aktiviert oder deaktiviert je nach Anforderung)
         if (disableInput) {
-            processBuilder.redirectInput(ProcessBuilder.Redirect.PIPE);  // Disables input by redirecting to a pipe
-        }
-
-        // Use console output if specified
-        if (useConsole) {
-            processBuilder.inheritIO();  // Redirect output directly to the console
+            processBuilder.redirectInput(ProcessBuilder.Redirect.PIPE);  // Eingabe deaktivieren
+        } else {
+            processBuilder.inheritIO();  // Eingabe und Ausgabe in die Konsole umleiten
         }
 
         process = processBuilder.start();  // Start the process and save the reference
 
-        // If console is not being used, handle the output manually
+        // Ausgabe manuell verarbeiten, wenn Konsole nicht verwendet wird
         if (!useConsole) {
             handleProcessOutput(process);
         }
 
-        return process;  // Return the process reference
+        return process;
     }
+
 
     // Method to retrieve the running process
     public Process getProcess() {
@@ -160,14 +158,24 @@ public class ProcessHandler {
         }
     }
 
+    // Method to set the logger type
+    public ProcessHandler useLogger(String uselogger) {
+        // Set the loggerType based on the parameter passed to this method
+        this.loggerType = uselogger;
+        return this;  // Return this to allow method chaining
+    }
+
     // Method to log messages, independent of the console output
     private void logMessage(String message) {
         switch (loggerType.toLowerCase()) {
             case "install":
                 LoggerUtility.install(message);  // Log install-related messages
                 break;
-            case "server":
+            case "info":
                 logger.info(message);  // Log server-related messages
+                break;
+            case "void":  // Do nothing (no log output)
+                // No logging happens, as this is the "void" mode
                 break;
             case "default":
             default:
@@ -199,11 +207,11 @@ public class ProcessHandler {
         try {
             // Test configuration for the ProcessHandler
             Process process = ProcessHandler.create("D:\\GIT\\Minecraft-Server-Installer\\Minecraft-Server-Installer\\RUN-TEST\\server.jar")
-                    .addJvmArgument("-Xms512M")  // Override or add specific JVM arguments
-                    .addParameter("nogui")  // Add server-specific argument (e.g., nogui for Minecraft server)
-                    //.useLogger("install")  // Use install logger
-                    .useConsole(true)      // Use console for output, logging remains independent
-                    //.disableInput()        // Disable user input
+                    .addJvmArgument("-Xms512M")
+                    .addParameter("nogui")
+                    .useLogger("info")  // Set logger to info level
+                    .useConsole(false)   // Manual output handling, input is disabled
+                    //.disableInput()      // Disable user input
                     .start();
 
             // Wait for the process to finish and get the exit code

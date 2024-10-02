@@ -63,9 +63,6 @@ def versionData = new JsonSlurper().parseText(versionFile.text)
 // Extrahiere die Version aus der JSON-Datei
 def version = versionData.version
 
-// Extrahiere die Version aus der JSON-Datei
-def name = versionData.version
-
 // Setze die Version für das Projekt
 project.version = version
 
@@ -97,6 +94,13 @@ jar {
     // Inkludiere die kompilierten Klassen aus dem Projekt
     from(sourceSets.main.output)
 
+    // Inkludiere alle Ressourcen aus dem Modules-Ordner (z. B. XML, JSON)
+    from(file('src/main/java/de/hellbz/MinecraftServerInstaller/Modules')) {
+        include '**/*'
+        exclude '**/*.java' // Schließt die .java-Dateien aus, da diese kompiliert werden
+        into 'de/hellbz/MinecraftServerInstaller/Modules'
+    }
+
 }
 
 // Registriere den Task zum Erstellen der zusätzlichen Datei
@@ -121,11 +125,11 @@ sourceSets.main.java.srcDirs = ['src/main/java']
 
 // Task für das Kompilieren der Plugins
 tasks.register('compilePlugins', JavaCompile) {
-    source = fileTree('src/main/java/de/hellbz/MinecraftServerInstallerModules') {
+    source = fileTree('src/main/java/de/hellbz/MinecraftServerInstaller/Modules') {
         include '**/*.java'
     }
     classpath = sourceSets.main.output + configurations.compileClasspath
-    destinationDir = file("$buildDir/classes/MinecraftServerInstallerModules")
+    destinationDir = file("$buildDir/classes/MinecraftServerInstaller/Modules")
 
     doFirst {
         println "Compiling plugin sources..."
@@ -144,17 +148,17 @@ tasks.register('buildPlugins') {
 }
 
 // Registriere JAR-Tasks für die Plugins
-file('src/main/java/de/hellbz/MinecraftServerInstallerModules').eachDir { dir ->
+file('src/main/java/de/hellbz/MinecraftServerInstaller/Modules').eachDir { dir ->
     def jarTaskName = "compilePlugin_${dir.name}"
     tasks.register(jarTaskName, Jar) {
         dependsOn 'compilePlugins'
         archiveBaseName.set("${dir.name}")
 
         // Füge die kompilierten Klassen hinzu
-        from(file("$buildDir/classes/MinecraftServerInstallerModules/de/hellbz/MinecraftServerInstallerModules/${dir.name}")) {
+        from(file("$buildDir/classes/MinecraftServerInstaller/Modules/de/hellbz/MinecraftServerInstaller/Modules/${dir.name}")) {
             include '**/*'
             // Entferne den führenden Pfad, um die richtige Struktur in der JAR zu bekommen
-            into "de/hellbz/MinecraftServerInstallerModules/${dir.name}"
+            into "de/hellbz/MinecraftServerInstaller/Modules/${dir.name}"
         }
         destinationDirectory.set(file("compiled/${timestampOnlyDay}/${project.version}/msi_data/modules/"))
 
@@ -162,12 +166,12 @@ file('src/main/java/de/hellbz/MinecraftServerInstallerModules').eachDir { dir ->
         from(dir) {
             include '**/*' // Schließt alle Dateien ein
             exclude '**/*.java' // Schließt die .java-Dateien aus, da diese kompiliert wurden
-            into "de/hellbz/MinecraftServerInstallerModules/${dir.name}"
+            into "de/hellbz/MinecraftServerInstaller/Modules/${dir.name}"
         }
 
         manifest {
             attributes(
-                    'Main-Class': "de.hellbz.MinecraftServerInstallerModules.${dir.name}.${dir.name}"
+                    'Main-Class': "de.hellbz.MinecraftServerInstaller.Modules.${dir.name}.${dir.name}"
             )
         }
     }
