@@ -144,7 +144,7 @@ public class MinecraftVanilla implements MinecraftServerInstaller {
 
                             String targetFile = resolveBaseToFolder(Config.rootFolder, serverDownloadUrl);
                             // Lade die Datei herunter und speichere sie im richtigen Verzeichnis
-                            FileOperation.getFile(serverDownloadUrl).fetchBinary().saveTo( targetFile );
+                            FileOperation.getFile(serverDownloadUrl).fetchBinaryWithProgressBar().saveTo( targetFile );
                         } else {
                             logger.warning("No server download available for this version.");
                         }

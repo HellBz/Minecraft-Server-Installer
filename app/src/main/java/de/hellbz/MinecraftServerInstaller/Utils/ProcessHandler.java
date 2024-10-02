@@ -206,7 +206,8 @@ public class ProcessHandler {
     public static void main(String[] args) {
         try {
             // Test configuration for the ProcessHandler
-            Process process = ProcessHandler.create("D:\\GIT\\Minecraft-Server-Installer\\Minecraft-Server-Installer\\RUN-TEST\\server.jar")
+            Process process = ProcessHandler.create("server.jar")
+                    .workDir(Config.rootFolder.resolve("RUN-TEST"))
                     .addJvmArgument("-Xms512M")
                     .addParameter("nogui")
                     .useLogger("info")  // Set logger to info level

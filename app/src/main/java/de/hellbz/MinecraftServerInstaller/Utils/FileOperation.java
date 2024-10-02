@@ -11,6 +11,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -108,6 +110,142 @@ public class FileOperation {
             }
         }
         return this;
+    }
+
+    private String initialTimestamp;
+
+    // Method to fetch the binary file from a remote URL with a visual progress bar (▓ and ░)
+    public FileOperation fetchBinaryWithProgressBar() {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(source);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            // Set headers
+            for (Map.Entry<String, String> header : headers.entrySet()) {
+                connection.setRequestProperty(header.getKey(), header.getValue());
+            }
+
+            connection.setConnectTimeout(5000); // 5 seconds timeout
+            connection.connect();
+
+            responseCode = connection.getResponseCode();
+            if (responseCode >= 200 && responseCode < 300) {
+                long contentLength = connection.getContentLengthLong(); // Get the content length
+                if (contentLength == -1) {
+                    if (!noLog) logger.severe("Could not determine file size.");
+                    return this;
+                } else {
+                    if (!noLog) logger.info("File size: " + formatSize(contentLength));
+                }
+
+                // Generate the timestamp once at the start
+                initialTimestamp = getFormattedTimestamp();
+
+                // Get the file name from the URL
+                String fileName = getFileNameFromUrl(url);
+
+                if (!noLog) logger.info("Downloading file: " + fileName );
+
+                try (InputStream in = connection.getInputStream();
+                     ByteArrayOutputStream buffer = new ByteArrayOutputStream()) {
+
+                    byte[] tempBuffer = new byte[4096];
+                    int bytesRead;
+                    long totalBytesRead = 0;
+                    int lastProgress = 0;
+
+                    // Initial progress bar setup
+                    printProgressBar(0, contentLength, 0, fileName);
+
+                    while ((bytesRead = in.read(tempBuffer)) != -1) {
+                        buffer.write(tempBuffer, 0, bytesRead);
+                        totalBytesRead += bytesRead;
+
+                        // Calculate progress in percentage
+                        int progress = (int) ((totalBytesRead * 100) / contentLength);
+                        if (progress / 10 > lastProgress / 10) {
+                            lastProgress = progress;
+                            // Update progress bar
+                            printProgressBar(totalBytesRead, contentLength, progress, fileName);
+                        }
+                    }
+
+                    binaryContent = buffer.toByteArray();  // Store binary data
+
+                    // Print final progress bar at 100%
+                    printProgressBar(contentLength, contentLength, 100, fileName);
+                    System.out.println();  // Move to a new line after progress bar completion
+
+                }
+                if (!noLog) logger.info("Successfully fetched URL: " + source);
+            } else {
+                if (!noLog) logger.severe("Failed to fetch URL: " + source + " - Server returned an error.");
+            }
+        } catch (IOException e) {
+            if (!noLog) logger.severe("Fetching file failed: " + e.getMessage());
+            responseCode = 500;
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+        return this;
+    }
+
+    // Helper method to print the progress bar with ▓ and ░ characters and the prefixed timestamp
+    private void printProgressBar(long bytesRead, long totalBytes, int progress, String fileName) {
+        int barLength = 30;  // Length of the progress bar
+        int filledLength = (int) (barLength * progress / 100);
+
+        StringBuilder bar = new StringBuilder();
+        bar.append("[");
+
+        // Create the filled portion of the bar using ▓
+        for (int i = 0; i < filledLength; i++) {
+            bar.append("▓");
+        }
+
+        // Create the unfilled portion of the bar using ░
+        for (int i = filledLength; i < barLength; i++) {
+            bar.append("░");
+        }
+
+        bar.append("] ");
+
+        // Print progress percentage and size information with the prefixed timestamp
+        System.out.printf("\r%s %sDOWNLOAD" +
+                        ":%s %s %d%% (%s / %s) File: %s",
+                initialTimestamp,
+                ConsoleColors.PURPLE_BRIGHT, ConsoleColors.RESET,
+                bar.toString(), progress, formatSize(bytesRead), formatSize(totalBytes), fileName);
+
+        System.out.flush();  // Ensure the progress bar is displayed in real-time
+    }
+
+    // Helper method to format file sizes in a human-readable format (MB, GB, etc.)
+    private String formatSize(long sizeInBytes) {
+        double size = sizeInBytes;
+        String[] units = {"B", "KB", "MB", "GB", "TB"};
+        int unitIndex = 0;
+        while (size >= 1024 && unitIndex < units.length - 1) {
+            size /= 1024;
+            unitIndex++;
+        }
+        return String.format("%.2f %s", size, units[unitIndex]);
+    }
+
+    // Method to get the formatted timestamp
+    private String getFormattedTimestamp() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "[" + LocalDateTime.now().format(formatter) + "]";
+    }
+
+    // Helper method to extract the file name from the URL object
+    private String getFileNameFromUrl(URL url) {
+        String filePath = url.getPath();  // Get the path of the URL
+        return filePath.substring(filePath.lastIndexOf('/') + 1);  // Extract the file name
     }
 
     // Method to fetch from a URL
