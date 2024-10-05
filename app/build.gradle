@@ -140,12 +140,24 @@ tasks.register('createStartFile') {
         outputFile_cur.parentFile.mkdirs()
         outputFile_cur.text = """
         @echo off
-        echo Build Date: ${new Date()}
         echo Project Name: ${rootProject.name}
         java -jar ${rootProject.name}.jar
         pause
         """
         println "Created file: ${outputFile_cur.path}"
+    }
+
+    //Create Start-File to Current
+    def outputFile_cur_sh = file("compiled/_start_.sh")
+    doLast {
+        outputFile_cur_sh.parentFile.mkdirs()
+        outputFile_cur_sh.text = """
+        #!/bin/bash
+        echo "Project Name: ${rootProject.name}"
+        java -jar Minecraft-Server-Installer.jar
+        read -p "Press any key to continue..."
+        """
+        println "Created file: ${outputFile_cur_sh.path}"
     }
 
 }
