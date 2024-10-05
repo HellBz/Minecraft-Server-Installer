@@ -35,3 +35,4 @@ build
 
 # Ignore TEST-Folder
 RUN-TEST/*
+/app/compiled/

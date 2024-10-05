@@ -101,6 +101,21 @@ jar {
         into 'de/hellbz/MinecraftServerInstaller/Modules'
     }
 
+    // Kopiere die JAR-Datei nach der Erstellung in einen anderen Ordner
+    doLast {
+
+        delete file('compiled_current/msi_data/config') // Pfad zum Zielordner
+        delete file('compiled_current/msi_data/logs') // Pfad zum Zielordner
+        delete file('compiled_current/msi_data/temp') // Pfad zum Zielordner
+        copy {
+            from archiveFile.get().asFile // Die erstellte JAR-Datei
+            into 'compiled_current/' // Zielverzeichnis
+            rename { fileName ->
+                "${rootProject.name}.jar" // Entfernt das Versionsmuster
+            }
+        }
+    }
+
 }
 
 // Registriere den Task zum Erstellen der zusätzlichen Datei
@@ -118,6 +133,21 @@ tasks.register('createStartFile') {
         """
         println "Created file: ${outputFile.path}"
     }
+
+    //Create Start-File to Current
+    def outputFile_cur = file("compiled_current/_start_.bat")
+    doLast {
+        outputFile_cur.parentFile.mkdirs()
+        outputFile_cur.text = """
+        @echo off
+        echo Build Date: ${new Date()}
+        echo Project Name: ${rootProject.name}
+        java -jar ${rootProject.name}.jar
+        pause
+        """
+        println "Created file: ${outputFile_cur.path}"
+    }
+
 }
 
 // Kompiliere die Hauptklassen im Standard-Build-Prozess
@@ -195,3 +225,29 @@ task customFatJar(type: Jar) {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
+
+// Task zum Löschen des Zielverzeichnisses
+task cleanOutputDir(type: Delete) {
+    delete file('compiled_current/msi_data/modules/') // Pfad zum Zielordner
+    delete file('compiled_current/msi_data/config') // Pfad zum Zielordner
+    delete file('compiled_current/msi_data/logs') // Pfad zum Zielordner
+    delete file('compiled_current/msi_data/temp') // Pfad zum Zielordner
+}
+
+// Task zum Kopieren der JAR-Dateien
+task copyJarsToOutputDir(type: Copy) {
+    dependsOn 'buildPlugins' // Task wird nach dem Build aufgerufen
+    from(file("compiled/${timestampOnlyDay}/${project.version}/msi_data/modules/")) // Ursprünglicher Ordner mit den JARs
+    into file('compiled_current/msi_data/modules/') // Zielordner
+    include '**/*.jar' // Kopiere nur JAR-Dateien
+    // Umbenennen der Dateien beim Kopieren, entfernt den Versionsanteil
+    rename { fileName ->
+        fileName.replaceAll("-${project.version}", '') // Entfernt das Versionsmuster
+    }
+}
+
+// Verknüpfe beide Tasks: Zuerst löschen, dann kopieren
+copyJarsToOutputDir.dependsOn cleanOutputDir
+
+// Task-Reihenfolge sicherstellen
+buildPlugins.finalizedBy(copyJarsToOutputDir)
