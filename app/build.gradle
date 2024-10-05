@@ -77,7 +77,7 @@ jar {
     archiveBaseName.set("${timestamp}-${rootProject.name}") // Verwendet den Namen des Root-Projekts
 
     // Setze das Verzeichnis, in dem die JAR-Datei gespeichert werden soll
-    destinationDirectory.set(file("compiled/${timestampOnlyDay}/${project.version}/"))
+    destinationDirectory.set(file("compiled_all/${timestampOnlyDay}/${project.version}/"))
     manifest {
         attributes(
                 'Main-Class': "de.hellbz.MinecraftServerInstaller.MainInstaller"
@@ -104,12 +104,12 @@ jar {
     // Kopiere die JAR-Datei nach der Erstellung in einen anderen Ordner
     doLast {
 
-        delete file('compiled_current/msi_data/config') // Pfad zum Zielordner
-        delete file('compiled_current/msi_data/logs') // Pfad zum Zielordner
-        delete file('compiled_current/msi_data/temp') // Pfad zum Zielordner
+        delete file('compiled/msi_data/config') // Pfad zum Zielordner
+        delete file('compiled/msi_data/logs') // Pfad zum Zielordner
+        delete file('compiled/msi_data/temp') // Pfad zum Zielordner
         copy {
             from archiveFile.get().asFile // Die erstellte JAR-Datei
-            into 'compiled_current/' // Zielverzeichnis
+            into 'compiled/' // Zielverzeichnis
             rename { fileName ->
                 "${rootProject.name}.jar" // Entfernt das Versionsmuster
             }
@@ -121,7 +121,7 @@ jar {
 // Registriere den Task zum Erstellen der zusätzlichen Datei
 tasks.register('createStartFile') {
 
-    def outputFile = file("compiled/${timestampOnlyDay}/${project.version}/_start_.bat")
+    def outputFile = file("compiled_all/${timestampOnlyDay}/${project.version}/_start_.bat")
     doLast {
         outputFile.parentFile.mkdirs()
         outputFile.text = """
@@ -135,7 +135,7 @@ tasks.register('createStartFile') {
     }
 
     //Create Start-File to Current
-    def outputFile_cur = file("compiled_current/_start_.bat")
+    def outputFile_cur = file("compiled/_start_.bat")
     doLast {
         outputFile_cur.parentFile.mkdirs()
         outputFile_cur.text = """
@@ -190,7 +190,7 @@ file('src/main/java/de/hellbz/MinecraftServerInstaller/Modules').eachDir { dir -
             // Entferne den führenden Pfad, um die richtige Struktur in der JAR zu bekommen
             into "de/hellbz/MinecraftServerInstaller/Modules/${dir.name}"
         }
-        destinationDirectory.set(file("compiled/${timestampOnlyDay}/${project.version}/msi_data/modules/"))
+        destinationDirectory.set(file("compiled_all/${timestampOnlyDay}/${project.version}/msi_data/modules/"))
 
         // Füge alle anderen Dateien aus dem Plugin-Ordner hinzu (Bilder, XML, JSON, etc.)
         from(dir) {
@@ -228,17 +228,17 @@ task customFatJar(type: Jar) {
 
 // Task zum Löschen des Zielverzeichnisses
 task cleanOutputDir(type: Delete) {
-    delete file('compiled_current/msi_data/modules/') // Pfad zum Zielordner
-    delete file('compiled_current/msi_data/config') // Pfad zum Zielordner
-    delete file('compiled_current/msi_data/logs') // Pfad zum Zielordner
-    delete file('compiled_current/msi_data/temp') // Pfad zum Zielordner
+    delete file('compiled/msi_data/modules/') // Pfad zum Zielordner
+    delete file('compiled/msi_data/config') // Pfad zum Zielordner
+    delete file('compiled/msi_data/logs') // Pfad zum Zielordner
+    delete file('compiled/msi_data/temp') // Pfad zum Zielordner
 }
 
 // Task zum Kopieren der JAR-Dateien
 task copyJarsToOutputDir(type: Copy) {
     dependsOn 'buildPlugins' // Task wird nach dem Build aufgerufen
-    from(file("compiled/${timestampOnlyDay}/${project.version}/msi_data/modules/")) // Ursprünglicher Ordner mit den JARs
-    into file('compiled_current/msi_data/modules/') // Zielordner
+    from(file("compiled_all/${timestampOnlyDay}/${project.version}/msi_data/modules/")) // Ursprünglicher Ordner mit den JARs
+    into file('compiled/msi_data/modules/') // Zielordner
     include '**/*.jar' // Kopiere nur JAR-Dateien
     // Umbenennen der Dateien beim Kopieren, entfernt den Versionsanteil
     rename { fileName ->
