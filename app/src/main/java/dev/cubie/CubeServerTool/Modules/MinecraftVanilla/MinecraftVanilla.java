@@ -54,37 +54,7 @@ public class MinecraftVanilla implements CubeServerModule {
      * Ermittelt die aktuell installierte Version.
      * @return Die aktuelle Version oder null, wenn nicht ermittelbar
      */
-    @Override
-    public String getCurrentVersion() {
-        // Versuche, die Version aus der server.properties zu lesen
-        try {
-            Path serverProps = Config.rootFolder.resolve("server.properties");
-            if (Files.exists(serverProps)) {
-                for (String line : Files.readAllLines(serverProps)) {
-                    if (line.startsWith("version=")) {
-                        return line.substring(8).trim();
-                    }
-                }
-            }
-            
-            // Alternativ: Aus dem Dateinamen der Server-JAR extrahieren
-            Pattern versionPattern = Pattern.compile("minecraft\\.(\\d+\\.\\d+(?:\\.\\d+)?)\\.jar");
-            try (java.util.stream.Stream<java.nio.file.Path> files = Files.list(Config.rootFolder)) {
-                return files
-                    .filter(Files::isRegularFile)
-                    .map(path -> path.getFileName().toString())
-                    .map(versionPattern::matcher)
-                    .filter(Matcher::find)
-                    .map(m -> m.group(1))
-                    .findFirst()
-                    .orElse(null);
-            }
-            
-        } catch (IOException e) {
-            LoggerUtility.getLogger(getClass()).warning("Fehler beim Ermitteln der aktuellen Version: " + e.getMessage());
-            return null;
-        }
-    }
+
     
     @Override
     public String[] getAvailableVersions() {

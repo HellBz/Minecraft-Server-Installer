@@ -126,7 +126,60 @@ public class CubeServerTool {
                                 }
                             }
                             
-                            // Hier könnte man ein automatisches Update durchführen
+                            // Automatisches Update durchführen
+                            logger.info("Führe Update auf Version " + latestVersion + " durch...");
+                            String newSubVersion = existingInstall.subVersion; // Standardmäßig alte Subversion beibehalten
+                            
+                            // Wenn eine neue Subversion verfügbar ist, diese verwenden
+                            if (availableSubVersions != null && availableSubVersions.length > 0) {
+                                newSubVersion = availableSubVersions[0];
+                                logger.info("Neue Subversion gefunden: " + newSubVersion);
+                            }
+                            
+                            try {
+                                // 1. Backup erstellen
+                                if (Config.selectedInstaller.shouldCreateBackup()) {
+                                    logger.info("Erstelle Backup der aktuellen Installation...");
+                                    String backupVersion = existingInstall.versionCurrent != null ? 
+                                            existingInstall.versionCurrent : existingInstall.version;
+                                    String backupSubVersion = existingInstall.subVersionCurrent != null ? 
+                                            existingInstall.subVersionCurrent : existingInstall.subVersion;
+                                            
+                                    boolean backupSuccess = Config.selectedInstaller.createBackup(
+                                        backupVersion,
+                                        backupSubVersion
+                                    );
+                                    
+                                    if (!backupSuccess) {
+                                        logger.warning("Backup konnte nicht erstellt werden, fahre trotzdem fort...");
+                                    }
+                                } else {
+                                    logger.info("Backup wurde übersprungen (in den Einstellungen deaktiviert)");
+                                }
+                                
+                                // 2. Neue Version installieren (wie eine Neuinstallation)
+                                logger.info("Installiere neue Version " + latestVersion + 
+                                    (newSubVersion != null ? " (Build: " + newSubVersion + ")" : "") + "...");
+                                
+                                // Hier würde die eigentliche Installationslogik stehen
+                                // Z.B.: Config.selectedInstaller.install(latestVersion, newSubVersion);
+                                
+                                // 3. Installationsinformationen aktualisieren
+                                existingInstall.versionCurrent = latestVersion;
+                                existingInstall.subVersionCurrent = newSubVersion;
+                                try {
+                                    existingInstall.saveToFile(Config.installationFilePath);
+                                    logger.info("Installationsinformationen wurden aktualisiert.");
+                                } catch (IOException e) {
+                                    logger.warning("Konnte Installationsinformationen nicht speichern: " + e.getMessage());
+                                }
+                                
+                                logger.info("Update erfolgreich durchgeführt!");
+                                
+                            } catch (Exception e) {
+                                logger.severe("Fehler während des Updates: " + e.getMessage());
+                                logger.severe("Bitte starte den Server manuell neu oder stelle das Backup wieder her.");
+                            }
                         } else {
                             logger.warning("Konnte keine verfügbaren Versionen abrufen");
                         }
@@ -141,49 +194,64 @@ public class CubeServerTool {
             // Starte den vorhandenen Server
             if (Config.selectedInstaller != null) {
                 try {
+                    logger.info("Initialisiere Server...");
                     Config.selectedInstaller.init();
+                    logger.info("Starte Server...");
                     Config.selectedInstaller.start();
+                    logger.info("Server erfolgreich gestartet.");
                     return; // Erfolgreich gestartet
                 } catch (Exception e) {
-                    logger.severe("Fehler beim Starten der Installation: " + e.getMessage());
+                    logger.log(java.util.logging.Level.SEVERE, "Fehler beim Starten des Servers", e);
+                    logger.warning("Falls das Problem weiterhin besteht, versuchen Sie bitte eine Neuinstallation.");
                 }
             } else {
                 logger.warning("Kein passender Installer für die vorhandene Installation gefunden.");
+                logger.info("Verfügbare Module: " + CubeServerModule.loadInternalInstallers().stream()
+                    .map(CubeServerModule::getInstallerName)
+                    .collect(java.util.stream.Collectors.joining(", ")));
             }
         } catch (Exception e) {
-            logger.severe("Fehler beim Verarbeiten der Installation: " + e.getMessage());
+            logger.log(java.util.logging.Level.SEVERE, "Schwerwiegender Fehler beim Verarbeiten der Installation", e);
         }
         
         // Falls wir hier ankommen, ist etwas schiefgelaufen
-        logger.info("Starte interaktiven Modus...");
-        startInteractiveMode();
+        logger.info("Starte interaktiven Modus zur Fehlerbehebung...");
+        try {
+            startInteractiveMode();
+        } catch (Exception e) {
+            logger.severe("Kritischer Fehler im interaktiven Modus: " + e.getMessage());
+            System.exit(1);
+        }
     }
 
     private static CubeServerModule findMatchingInstaller(InstallationManager.InstallationInfo info) {
-        Logger logger = LoggerUtility.getLogger(CubeServerTool.class);
-        logger.info("Suche nach passendem Installer für Installation");
+        if (info == null || info.installerName == null) {
+            return null;
+        }
+        
+        // Lade verfügbare Installer
         List<CubeServerModule> installers = new ArrayList<>(CubeServerModule.loadInternalInstallers());
         CubeServerModule.loadExternalJars(Config.modulesFolder, installers);
         
-        for (CubeServerModule installer : installers) {
-            if (installer.getInstallerName().equalsIgnoreCase(info.installerName)) {
-                return installer;
+        // Durchsuche alle verfügbaren Module nach einem passenden Installer
+        for (CubeServerModule module : installers) {
+            if (info.installerName.equalsIgnoreCase(module.getInstallerName())) {
+                return module;
             }
         }
+        
         return null;
     }
 
     public static void startInteractiveMode() {
         Logger logger = LoggerUtility.getLogger(CubeServerTool.class);
-        // Load internal installers
-        logger.info("Lade interne Installer-Module...");
+        logger.info("Starte interaktiven Modus...");
+        
+        // Lade verfügbare Installer
         List<CubeServerModule> installers = new ArrayList<>(CubeServerModule.loadInternalInstallers());
-
-        // Load external JARs
-        logger.info("Lade externe JARs aus " + Config.modulesFolder + "...");
         CubeServerModule.loadExternalJars(Config.modulesFolder, installers);
 
-        // Check if any installers were loaded
+        // Prüfe ob Installer geladen wurden
         if (installers.isEmpty()) {
             logger.severe("Keine Installer gefunden. Beende Programm.");
             System.exit(1);

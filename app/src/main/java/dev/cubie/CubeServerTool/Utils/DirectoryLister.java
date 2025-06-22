@@ -287,44 +287,84 @@ public class DirectoryLister {
     }
 
     private boolean filter(Path entry) {
+        String filename = entry.getFileName().toString();
+        
         // Hard-coded exclusion of "cst_data" and the JAR file
-        if (entry.getFileName().toString().equals("cst_data") || excludedFiles.contains(entry.getFileName().toString())) {
+        if (filename.equals("cst_data") || excludedFiles.contains(filename)) {
             return false;
         }
 
         if (Files.isDirectory(entry)) {
             if (filterFilesOnly) {
-                return false;  // Only filtering files, so skip directories
+                return false;  // Nur Dateien filtern, also Verzeichnisse überspringen
             }
-            if (!includedDirs.isEmpty() && !includedDirs.contains(entry.getFileName().toString())) {
+            if (!includedDirs.isEmpty() && !includedDirs.contains(filename)) {
                 return false;
             }
-            return !excludedDirs.contains(directory.relativize(entry).toString());
+            
+            // Prüfe auf ausgeschlossene Verzeichnisse
+            String relativePath = directory.relativize(entry).toString().replace('\\', '/');
+            for (String pattern : excludedDirs) {
+                if (matchesPattern(relativePath, pattern)) {
+                    return false;
+                }
+            }
+            return true;
+            
         } else if (Files.isRegularFile(entry)) {
             if (filterDirectoriesOnly) {
-                return false;  // Only filtering directories, so skip files
+                return false;  // Nur Verzeichnisse filtern, also Dateien überspringen
             }
+            
+            // Prüfe auf einzuschließende Muster
             if (!includedFiles.isEmpty()) {
                 boolean matchesInclude = includedFiles.stream()
-                        .anyMatch(pattern -> Pattern.matches(pattern, entry.getFileName().toString()));
+                        .anyMatch(pattern -> matchesPattern(filename, pattern));
                 if (!matchesInclude) {
                     return false;
                 }
             }
-            if (excludedFiles.stream()
-                    .anyMatch(pattern -> Pattern.matches(pattern, entry.getFileName().toString()))) {
-                return false;
-            }
+            
+            // Prüfe auf ausgeschlossene Muster
+            return excludedFiles.stream()
+                    .noneMatch(pattern -> matchesPattern(filename, pattern));
         }
 
-        // Apply custom filters
+        // Benutzerdefinierte Filter anwenden
         for (Predicate<Path> customFilter : customFilters) {
             if (!customFilter.test(entry)) {
                 return false;
             }
         }
 
-        return true;  // Return true if all filters pass
+        return true;  // True zurückgeben, wenn alle Filter bestanden wurden
+    }
+    
+    /**
+     * Prüft, ob ein Dateiname einem Muster entspricht.
+     * Unterstützt einfache Wildcards (*) und reguläre Ausdrücke.
+     */
+    private boolean matchesPattern(String filename, String pattern) {
+        try {
+            // Wenn das Muster ein einfacher Dateiname ist, direkt vergleichen
+            if (!pattern.contains("*") && !pattern.contains(".")) {
+                return filename.equals(pattern);
+            }
+            
+            // Ersetze einfache Wildcards (*) durch den entsprechenden regulären Ausdruck
+            String regex = pattern
+                .replace(".", "\\.")  // Punkte escapen
+                .replace("*", ".*");     // * durch .* ersetzen
+                
+            // Füge ^ am Anfang und $ am Ende hinzu, um exakte Übereinstimmung zu erzwingen
+            if (!regex.startsWith("^")) regex = "^" + regex;
+            if (!regex.endsWith("$")) regex = regex + "$";
+                
+            return Pattern.matches(regex, filename);
+        } catch (Exception e) {
+            logger.warning("Ungültiges Muster: " + pattern + ": " + e.getMessage());
+            return false;
+        }
     }
 
     public static void main(String[] args) {

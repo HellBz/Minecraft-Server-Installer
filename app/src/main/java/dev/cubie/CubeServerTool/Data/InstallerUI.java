@@ -65,38 +65,79 @@ public class InstallerUI {
     // Method to select a version from the installer
     public static void selectVersion() {
         List<String> availableVersions = Arrays.asList(Config.selectedInstaller.getAvailableVersions());
-        logger.info("Available versions:");
+        if (availableVersions.isEmpty()) {
+            logger.severe("Keine Versionen verfügbar!");
+            System.exit(1);
+        }
+        
+        logger.info("Verfügbare Versionen (neueste zuerst):");
         printTable(availableVersions, 4, "[", "]");
 
-        logger.info("Select a version (1-" + availableVersions.size() + "): ");
-        Scanner scanner = new Scanner(System.in);
-        int versionChoice;
-        try {
-            versionChoice = scanner.nextInt();
-        } catch (NoSuchElementException e) {
-            versionChoice = 1; // Default choice
-            logger.warning("No input provided, using default version: " + versionChoice);
+        while (true) {
+            logger.info("Wählen Sie eine Version (1-" + availableVersions.size() + ") oder geben Sie 'latest' oder '0' für die neueste Version ein: ");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine().trim().toLowerCase();
+            
+            // Leere Eingabe, 'latest' oder '0' wählt die neueste Version
+            if (input.isEmpty() || input.equals("latest") || input.equals("0")) {
+                Config.selectedVersion = availableVersions.get(0);
+                logger.info("Verwende neueste Version: " + Config.selectedVersion);
+                return;
+            }
+            
+            // Versuche die Eingabe als Zahl zu parsen
+            try {
+                int versionChoice = Integer.parseInt(input);
+                if (versionChoice >= 1 && versionChoice <= availableVersions.size()) {
+                    Config.selectedVersion = availableVersions.get(versionChoice - 1);
+                    logger.info("Ausgewählte Version: " + Config.selectedVersion);
+                    return;
+                } else {
+                    logger.warning("Ungültige Auswahl. Bitte geben Sie eine Zahl zwischen 1 und " + availableVersions.size() + " ein.");
+                }
+            } catch (NumberFormatException e) {
+                logger.warning("Ungültige Eingabe. Bitte geben Sie eine Zahl, 'latest' oder drücken Sie einfach Enter ein.");
+            }
         }
-        Config.selectedVersion =  availableVersions.get(versionChoice - 1);
     }
 
     // Method to select a subversion if available
     public static void selectSubVersion() {
-        List<String> availableSubVersions = Arrays.asList(Config.selectedInstaller.getAvailableSubVersions());
-        if (!availableSubVersions.isEmpty()) {
-            logger.info("Available subversions:");
-            printTable(availableSubVersions, 4, "[", "]");
+        String[] subVersions = Config.selectedInstaller.getAvailableSubVersions();
+        if (subVersions == null || subVersions.length == 0) {
+            Config.selectedSubVersion = "";
+            return;
+        }
+        
+        List<String> availableSubVersions = Arrays.asList(subVersions);
+        logger.info("Verfügbare Subversionen (neueste zuerst):");
+        printTable(availableSubVersions, 4, "[", "]");
 
-            logger.info("Select a subversion (1-" + availableSubVersions.size() + "): ");
+        while (true) {
+            logger.info("Wählen Sie eine Subversion (1-" + availableSubVersions.size() + "), 'latest', '0' oder drücken Sie Enter für die neueste Version: ");
             Scanner scanner = new Scanner(System.in);
-            int subVersionChoice;
-            try {
-                subVersionChoice = scanner.nextInt();
-            } catch (NoSuchElementException e) {
-                subVersionChoice = 1; // Default choice
-                logger.warning("No input provided, using default subVersion: " + subVersionChoice);
+            String input = scanner.nextLine().trim().toLowerCase();
+            
+            // Leere Eingabe, 'latest' oder '0' wählt die neueste Version
+            if (input.isEmpty() || input.equals("latest") || input.equals("0")) {
+                Config.selectedSubVersion = availableSubVersions.get(0);
+                logger.info("Verwende neueste Subversion: " + Config.selectedSubVersion);
+                return;
             }
-            Config.selectedSubVersion =  availableSubVersions.get(subVersionChoice - 1);
+            
+            // Versuche die Eingabe als Zahl zu parsen
+            try {
+                int subVersionChoice = Integer.parseInt(input);
+                if (subVersionChoice >= 1 && subVersionChoice <= availableSubVersions.size()) {
+                    Config.selectedSubVersion = availableSubVersions.get(subVersionChoice - 1);
+                    logger.info("Ausgewählte Subversion: " + Config.selectedSubVersion);
+                    return;
+                } else {
+                    logger.warning("Ungültige Auswahl. Bitte geben Sie eine Zahl zwischen 1 und " + availableSubVersions.size() + " ein.");
+                }
+            } catch (NumberFormatException e) {
+                logger.warning("Ungültige Eingabe. Bitte geben Sie eine Zahl, 'latest' oder drücken Sie einfach Enter ein.");
+            }
         }
     }
 

@@ -36,6 +36,7 @@ public class Config {
     public static Path logFolder = dataFolder.resolve("logs");
     public static Path modulesFolder = dataFolder.resolve("modules");
     public static Path tempFolder = dataFolder.resolve("temp");
+    public static Path backupFolder = dataFolder.resolve("backups");
 
     // Define paths based on the subfolders
     public static Path configFilePath = configFolder.resolve("cst.conf");

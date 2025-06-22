@@ -48,9 +48,51 @@ public interface CubeServerModule {
     
     /**
      * Gibt die aktuell installierte Version zurück.
+     * Standardimplementierung sucht nach einer server.properties-Datei oder nach der Server-JAR.
      * @return Die installierte Version oder null, wenn nicht ermittelbar
      */
-    String getCurrentVersion();
+    default String getCurrentVersion() {
+        Logger logger = LoggerUtility.getLogger(getClass());
+        
+        // 1. Versuche, die Version aus der server.properties zu lesen
+        try {
+            Path serverProps = Config.rootFolder.resolve("server.properties");
+            if (Files.exists(serverProps)) {
+                for (String line : Files.readAllLines(serverProps, StandardCharsets.UTF_8)) {
+                    if (line.startsWith("version=")) {
+                        String version = line.substring(8).trim();
+                        if (!version.isEmpty()) {
+                            logger.fine("Version aus server.properties gelesen: " + version);
+                            return version;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            logger.warning("Konnte Version nicht aus server.properties lesen: " + e.getMessage());
+        }
+        
+        // 2. Versuche, die Version aus dem Dateinamen der Server-JAR zu extrahieren
+        try {
+            Pattern jarPattern = getStartFile();
+            if (jarPattern != null) {
+                try (java.util.stream.Stream<Path> files = Files.list(Config.rootFolder)) {
+                    return files
+                        .filter(Files::isRegularFile)
+                        .map(path -> path.getFileName().toString())
+                        .map(jarPattern::matcher)
+                        .filter(java.util.regex.Matcher::find)
+                        .map(m -> m.group(1))
+                        .findFirst()
+                        .orElse(null);
+                }
+            }
+        } catch (Exception e) {
+            logger.warning("Konnte Version nicht aus JAR-Dateinamen extrahieren: " + e.getMessage());
+        }
+        
+        return null;
+    }
     
     /**
      * Gibt die verfügbaren Versionen zurück.
@@ -139,7 +181,8 @@ public interface CubeServerModule {
             String versionString = getBackupVersionString(version, subVersion);
             String backupName = String.format("%s-%s.zip", getClass().getSimpleName(), versionString);
             
-            Path backupDir = Config.rootFolder.getParent().resolve("cst_data/backups");
+            // Verwende den Backup-Ordner aus der Config
+            Path backupDir = Config.backupFolder;
             Files.createDirectories(backupDir);
             
             Path backupPath = backupDir.resolve(backupName);

@@ -72,27 +72,31 @@ public class ConfigHandler {
 
     // Method to create the directories if they don't exist
     public static void createRequiredDirectories() throws IOException {
-            if (!Files.exists(Config.dataFolder)) {
-                Files.createDirectories(Config.dataFolder);
-                logger.info("Created data folder: " + Config.dataFolder.toAbsolutePath());
-            }
-            if (!Files.exists(Config.configFolder)) {
-                Files.createDirectories(Config.configFolder);
-                logger.info("Created config folder: " + Config.configFolder.toAbsolutePath());
-            }
-            if (!Files.exists(Config.logFolder)) {
-                Files.createDirectories(Config.logFolder);
-                logger.info("Created log folder: " + Config.logFolder.toAbsolutePath());
-            }
-            if (!Files.exists(Config.modulesFolder)) {
-                Files.createDirectories(Config.modulesFolder);
-                logger.info("Created modules folder: " + Config.modulesFolder.toAbsolutePath());
-            }
-            if (!Files.exists(Config.tempFolder)) {
-                Files.createDirectories(Config.tempFolder);
-                logger.info("Created temp folder: " + Config.tempFolder.toAbsolutePath());
-            }
+        if (!Files.exists(Config.dataFolder)) {
+            Files.createDirectories(Config.dataFolder);
+            logger.info("Created data folder: " + Config.dataFolder.toAbsolutePath());
         }
+        if (!Files.exists(Config.configFolder)) {
+            Files.createDirectories(Config.configFolder);
+            logger.info("Created config folder: " + Config.configFolder.toAbsolutePath());
+        }
+        if (!Files.exists(Config.logFolder)) {
+            Files.createDirectories(Config.logFolder);
+            logger.info("Created log folder: " + Config.logFolder.toAbsolutePath());
+        }
+        if (!Files.exists(Config.modulesFolder)) {
+            Files.createDirectories(Config.modulesFolder);
+            logger.info("Created modules folder: " + Config.modulesFolder.toAbsolutePath());
+        }
+        if (!Files.exists(Config.tempFolder)) {
+            Files.createDirectories(Config.tempFolder);
+            logger.info("Created temp folder: " + Config.tempFolder.toAbsolutePath());
+        }
+        if (!Files.exists(Config.backupFolder)) {
+            Files.createDirectories(Config.backupFolder);
+            logger.info("Created backup folder: " + Config.backupFolder.toAbsolutePath());
+        }
+    }
 
     // Update or add a property in the config file
     public static void updateProperty(String propertiesFilePath, String key, String newValue) throws IOException {
