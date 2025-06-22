@@ -23,7 +23,7 @@ public class Config {
     public static String selectedType;
     public static String selectedVersion;
     public static String selectedSubVersion;
-    public static Boolean selectedAutoUpdate;
+    public static Boolean selectedAutoUpdate = false; // Standardwert auf false setzen
 
     // Define the base root folder
     public static Path rootFolder = Paths.get(".").toAbsolutePath().normalize();
@@ -39,6 +39,7 @@ public class Config {
 
     // Define paths based on the subfolders
     public static Path configFilePath = configFolder.resolve("cst.conf");
+    public static Path installationFilePath = configFolder.resolve("installation.conf");
     public static Path logFilePath = logFolder.resolve("latest-log.csv");
 
     // Configurable settings loaded from config

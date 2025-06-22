@@ -5,6 +5,8 @@ import dev.cubie.CubeServerTool.Utils.FileOperation;
 import dev.cubie.CubeServerTool.Utils.LoggerUtility;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.logging.Logger;
 
 public class InstallerInfoReader {
@@ -34,7 +36,13 @@ public class InstallerInfoReader {
     }
 
     public static String getRemoteInstallerVersion() {
-
+        // Ensure temp directory exists
+        try {
+            Files.createDirectories(Config.tempFolder);
+        } catch (IOException e) {
+            logger.warning("Could not create temp directory: " + e.getMessage());
+        }
+        
         String cacheFile = Config.tempFolder.resolve("installerInfo.json").toAbsolutePath().toString();
         // Use FileOperation to read installerInfo.json from the resources
         FileOperation result = FileOperation.getFile("https://raw.githubusercontent.com/HellBz/Minecraft-Server-Installer/master/app/src/main/resources/installerInfo.json")

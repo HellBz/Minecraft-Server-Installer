@@ -56,7 +56,7 @@ public class ConfigHandler {
         // Check if the config file already exists
         if (!Files.exists(Config.configFilePath)) {
             // Load the default config from resources
-            InputStream defaultConfigStream = ConfigHandler.class.getClassLoader().getResourceAsStream("default-cst.conf");
+            InputStream defaultConfigStream = ConfigHandler.class.getClassLoader().getResourceAsStream("cst.conf.template");
 
             if (defaultConfigStream == null) {
                 throw new FileNotFoundException("Default configuration file not found in resources.");

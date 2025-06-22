@@ -1,17 +1,20 @@
 package dev.cubie.CubeServerTool.Modules.MinecraftVanilla;
 
 import dev.cubie.CubeServerTool.CubeServerModule;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-
 import dev.cubie.CubeServerTool.Data.Config;
 import dev.cubie.CubeServerTool.Utils.FileOperation;
 import dev.cubie.CubeServerTool.Utils.LoggerUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static dev.cubie.CubeServerTool.Utils.FileOperation.resolveBaseToFolder;
 
@@ -33,7 +36,7 @@ public class MinecraftVanilla implements CubeServerModule {
 
     @Override
     public void init() {
-        System.out.println("Vanilla Minecraft Installer initialized.");
+        System.out.println("Vanilla Minecraft CLASS initialized.");
     }
 
     @Override
@@ -46,6 +49,43 @@ public class MinecraftVanilla implements CubeServerModule {
         return new String[] {"Release", "Snapshot", "All"};
     }
 
+
+    /**
+     * Ermittelt die aktuell installierte Version.
+     * @return Die aktuelle Version oder null, wenn nicht ermittelbar
+     */
+    @Override
+    public String getCurrentVersion() {
+        // Versuche, die Version aus der server.properties zu lesen
+        try {
+            Path serverProps = Config.rootFolder.resolve("server.properties");
+            if (Files.exists(serverProps)) {
+                for (String line : Files.readAllLines(serverProps)) {
+                    if (line.startsWith("version=")) {
+                        return line.substring(8).trim();
+                    }
+                }
+            }
+            
+            // Alternativ: Aus dem Dateinamen der Server-JAR extrahieren
+            Pattern versionPattern = Pattern.compile("minecraft\\.(\\d+\\.\\d+(?:\\.\\d+)?)\\.jar");
+            try (java.util.stream.Stream<java.nio.file.Path> files = Files.list(Config.rootFolder)) {
+                return files
+                    .filter(Files::isRegularFile)
+                    .map(path -> path.getFileName().toString())
+                    .map(versionPattern::matcher)
+                    .filter(Matcher::find)
+                    .map(m -> m.group(1))
+                    .findFirst()
+                    .orElse(null);
+            }
+            
+        } catch (IOException e) {
+            LoggerUtility.getLogger(getClass()).warning("Fehler beim Ermitteln der aktuellen Version: " + e.getMessage());
+            return null;
+        }
+    }
+    
     @Override
     public String[] getAvailableVersions() {
 
@@ -161,10 +201,4 @@ public class MinecraftVanilla implements CubeServerModule {
             }
         }
     }
-
-    @Override
-    public void start() {
-
-    }
-
 }

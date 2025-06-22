@@ -21,6 +21,12 @@ public class InstallerUI {
         logger.info("Available installers:");
         List<String> installerNames = new ArrayList<>();
         for (CubeServerModule installer : installers) {
+            // Debugging-Ausgabe
+            // System.out.println("Installer: " + installer);
+            // System.out.println("Installer Name: " + installer.getInstallerName());
+            // System.out.println("Installer Class: " + installer.getClass().getSimpleName());
+            // System.out.println("Installer Class Full Name: " + installer.getClass().getName());
+            
             installerNames.add(installer.getInstallerName());
         }
         printTable(installerNames);

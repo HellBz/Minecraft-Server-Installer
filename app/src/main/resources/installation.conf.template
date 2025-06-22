@@ -1,0 +1,20 @@
+# Installation Configuration
+# This file contains information about the installed server
+
+# The name of the installer used (e.g., Minecraft-Vanilla, Minecraft-Forge)
+installerName=Minecraft-Vanilla
+
+# The type of installation (e.g., Release, Snapshot)
+type=Release
+
+# The version of the server (e.g., 1.21.6)
+version=1.21.6
+
+# The sub-version or build number (can be empty)
+subVersion=
+
+# The installation path (automatically set)
+installationPath=./
+
+# Enable automatic updates (true/false)
+autoUpdate=false

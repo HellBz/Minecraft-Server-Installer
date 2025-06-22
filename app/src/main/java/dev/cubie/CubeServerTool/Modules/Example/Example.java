@@ -46,6 +46,12 @@ public class Example implements CubeServerModule {
     }
 
     @Override
+    public String getCurrentVersion() {
+        // Beispielimplementierung - gibt die aktuell ausgewählte Version zurück
+        return Config.selectedVersion;
+    }
+
+    @Override
     public void install() {
         System.out.println("Installing Test Minecraft Version: " + Config.selectedVersion + ", Sub-Version: " + Config.selectedSubVersion);
     }

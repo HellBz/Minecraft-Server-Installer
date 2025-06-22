@@ -7,12 +7,11 @@
 
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
@@ -21,16 +20,21 @@ configurations {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation libs.junit.jupiter
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    //https://mvnrepository.com/artifact/org.json/json
+    // JSON processing
     implementation 'org.json:json:20240303'
     packIntoJAR 'org.json:json:20240303'
+    
+    // Gson for JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    packIntoJAR 'com.google.code.gson:gson:2.10.1'
 
-    // This dependency is used by the application.
-    implementation libs.guava
+    // Guava utilities
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.9'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -38,6 +42,11 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(8)
     }
+}
+
+// Handle duplicate files in JAR
+tasks.withType(Jar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 application {
@@ -52,17 +61,16 @@ tasks.named('test') {
 
 apply plugin: 'java'
 
-import groovy.json.JsonSlurper
 import java.text.SimpleDateFormat
 
 // Pfad zur JSON-Datei im res-Ordner
 def versionFile = file('src/main/resources/installerInfo.json')
 
-// Lese und parse die JSON-Datei
-def versionData = new JsonSlurper().parseText(versionFile.text)
-
-// Extrahiere die Version aus der JSON-Datei
-def version = versionData.version
+// Lese die JSON-Datei als Text
+def jsonText = versionFile.text
+// Extrahiere die Version mit regulären Ausdrücken
+def matcher = jsonText =~ /"version"\s*:\s*"([^"]+)"/
+def version = matcher.find() ? matcher[0][1] : '1.0.0'
 
 // Setze die Version für das Projekt
 project.version = version
@@ -166,8 +174,8 @@ tasks.register('createStartFile') {
 // Kompiliere die Hauptklassen im Standard-Build-Prozess
 sourceSets.main.java.srcDirs = ['src/main/java']
 
-// Task für das Kompilieren der Plugins
-tasks.register('compilePlugins', JavaCompile) {
+// Task für das Kompilieren der Modules
+tasks.register('compileModules', JavaCompile) {
     source = fileTree('src/main/java/dev/cubie/CubeServerTool/Modules') {
         include '**/*.java'
     }
@@ -175,26 +183,26 @@ tasks.register('compilePlugins', JavaCompile) {
     destinationDir = file("$buildDir/classes/CubeServerTool/Modules")
 
     doFirst {
-        println "Compiling plugin sources..."
+        println "Compiling module sources..."
         source.each { println it }
     }
 }
 
 
-// Definiere den buildPlugins-Task
-tasks.register('buildPlugins') {
+// Definiere den buildModules-Task
+tasks.register('buildModules') {
     dependsOn 'build' // Stellt sicher, dass das gesamte Projekt zuerst gebaut wird
-    dependsOn 'compilePlugins'
+    dependsOn 'compileModules'
     doLast {
-        println "All plugins have been built."
+        println "All modules have been built."
     }
 }
 
-// Registriere JAR-Tasks für die Plugins
+// Registriere JAR-Tasks für die Modules
 file('src/main/java/dev/cubie/CubeServerTool/Modules').eachDir { dir ->
-    def jarTaskName = "compilePlugin_${dir.name}"
+    def jarTaskName = "compileModule_${dir.name}"
     tasks.register(jarTaskName, Jar) {
-        dependsOn 'compilePlugins'
+        dependsOn 'compileModules'
         archiveBaseName.set("${dir.name}")
 
         // Füge die kompilierten Klassen hinzu
@@ -219,14 +227,14 @@ file('src/main/java/dev/cubie/CubeServerTool/Modules').eachDir { dir ->
         }
     }
 
-    tasks.named('buildPlugins').configure {
+    tasks.named('buildModules').configure {
         dependsOn jarTaskName
     }
 }
 
 // Stellt sicher, dass der Build-Prozess den Plugin-Build und die Dateierstellung umfasst
 tasks.named('build') {
-    dependsOn 'createStartFile' // , 'buildPlugins'
+    dependsOn 'createStartFile' // , 'buildModules'
 }
 
 task customFatJar(type: Jar) {
@@ -249,7 +257,7 @@ task cleanOutputDir(type: Delete) {
 
 // Task zum Kopieren der JAR-Dateien
 task copyJarsToOutputDir(type: Copy) {
-    dependsOn 'buildPlugins' // Task wird nach dem Build aufgerufen
+    dependsOn 'buildModules' // Task wird nach dem Build aufgerufen
     from(file("compiled_all/${timestampOnlyDay}/${project.version}/cst_data/modules/")) // Ursprünglicher Ordner mit den JARs
     into file('compiled/cst_data/modules/') // Zielordner
     include '**/*.jar' // Kopiere nur JAR-Dateien
@@ -263,4 +271,4 @@ task copyJarsToOutputDir(type: Copy) {
 copyJarsToOutputDir.dependsOn cleanOutputDir
 
 // Task-Reihenfolge sicherstellen
-buildPlugins.finalizedBy(copyJarsToOutputDir)
+buildModules.finalizedBy(copyJarsToOutputDir)

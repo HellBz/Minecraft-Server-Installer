@@ -1,16 +1,21 @@
 package dev.cubie.CubeServerTool;
 
 import dev.cubie.CubeServerTool.Utils.LoggerUtility;
+import dev.cubie.CubeServerTool.Data.Config;
+import dev.cubie.CubeServerTool.Utils.ProcessHandler;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Optional;
 import java.util.jar.Attributes;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -18,19 +23,311 @@ import java.util.jar.Manifest;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+import dev.cubie.CubeServerTool.Utils.DirectoryLister;
+
 // Schnittstelle für CubeServerTool
 public interface CubeServerModule {
 
-    void init();
+    /**
+     * Wird beim Laden des Moduls aufgerufen.
+     * Kann überschrieben werden, um Initialisierungslogik hinzuzufügen.
+     */
+    default void init() {}
+    
+    /**
+     * Gibt den Anzeigenamen des Installers/Moduls zurück.
+     * @return Der Anzeigename als String
+     */
     String getInstallerName();
+    
+    /**
+     * Gibt die verfügbaren Server-Typen zurück (z.B. "Release", "Snapshot").
+     * @return Array von verfügbaren Typen
+     */
     String[] getAvailableTypes();
+    
+    /**
+     * Gibt die aktuell installierte Version zurück.
+     * @return Die installierte Version oder null, wenn nicht ermittelbar
+     */
+    String getCurrentVersion();
+    
+    /**
+     * Gibt die verfügbaren Versionen zurück.
+     * @return Array von verfügbaren Versionen
+     */
     String[] getAvailableVersions();
+    
+    /**
+     * Gibt verfügbare Unterversionen zurück (z.B. Build-Nummern).
+     * @return Array von verfügbaren Unterversionen
+     */
     String[] getAvailableSubVersions();
 
+    /**
+     * Gibt das Pattern zurück, mit dem nach der Startdatei gesucht wird.
+     * @return Pattern für die Dateisuche
+     */
     Pattern getStartFile();
+    
+    /**
+     * Gibt eine Liste der zu sichernden Verzeichnisse zurück.
+     * Standardmäßig wird das Root-Verzeichnis gesichert.
+     * @return Liste der zu sichernden Verzeichnisse
+     */
+    default List<Path> getBackupDirectories() {
+        List<Path> dirs = new ArrayList<>();
+        dirs.add(Config.rootFolder);
+        return dirs;
+    }
+    
+    /**
+     * Gibt eine Liste der auszuschließenden Dateimuster zurück.
+     * @return Liste der auszuschließenden Dateimuster
+     */
+    default List<String> getBackupExcludes() {
+        List<String> excludes = new ArrayList<>();
+        excludes.add("session.lock");
+        excludes.add("*.log");
+        excludes.add("*.lck");
+        excludes.add("*.tmp");
+        excludes.add("logs/**");
+        excludes.add("crash-reports/**");
+        excludes.add("cst_data/**");
+        return excludes;
+    }
+    
+    /**
+     * Bestimmt, ob für dieses Modul ein Backup erstellt werden soll.
+     * @return true, wenn ein Backup erstellt werden soll, sonst false
+     */
+    default boolean shouldCreateBackup() {
+        return true;
+    }
+    
+    /**
+     * Gibt den zu verwendenden Versions-String für das Backup zurück.
+     * @param version Die Hauptversion
+     * @param subVersion Die Subversion (kann null sein)
+     * @return Der zu verwendende Versions-String
+     */
+    default String getBackupVersionString(String version, String subVersion) {
+        return version + (subVersion != null && !subVersion.isEmpty() ? "-" + subVersion : "");
+    }
 
+    /**
+     * Führt die Installation des Servers durch.
+     * Muss von konkreten Implementierungen implementiert werden.
+     */
     void install();
-    void start();
+    
+    /**
+     * Erstellt ein Backup des aktuellen Serververzeichnisses.
+     * @param version Die Zielversion, zu der aktualisiert wird
+     * @param subVersion Die Ziel-Subversion (kann null sein)
+     * @return true, wenn das Backup erfolgreich war, sonst false
+     */
+    default boolean createBackup(String version, String subVersion) {
+        if (!shouldCreateBackup()) {
+            LoggerUtility.getLogger(getClass()).info("Backup-Erstellung für dieses Modul deaktiviert");
+            return true;
+        }
+        
+        Logger logger = LoggerUtility.getLogger(getClass());
+        try {
+            // Bestimme den Backup-Namen
+            String versionString = getBackupVersionString(version, subVersion);
+            String backupName = String.format("%s-%s.zip", getClass().getSimpleName(), versionString);
+            
+            Path backupDir = Config.rootFolder.getParent().resolve("cst_data/backups");
+            Files.createDirectories(backupDir);
+            
+            Path backupPath = backupDir.resolve(backupName);
+            
+            // Lösche ältere Backups der gleichen Version
+            cleanupOldBackups(backupDir, backupName, versionString);
+            
+            logger.info("Erstelle Backup: " + backupPath);
+            
+            // Erstelle das Backup mit DirectoryLister für jedes zu sichernde Verzeichnis
+            for (Path dir : getBackupDirectories()) {
+                if (!Files.exists(dir)) {
+                    logger.warning("Verzeichnis existiert nicht und wird übersprungen: " + dir);
+                    continue;
+                }
+                
+                DirectoryLister lister = new DirectoryLister(dir);
+                
+                // Füge alle Ausschlussmuster hinzu
+                for (String exclude : getBackupExcludes()) {
+                    if (exclude.endsWith("**")) {
+                        lister.excludeDirectory(exclude.substring(0, exclude.length() - 3));
+                    } else if (exclude.endsWith("*")) {
+                        lister.excludeFile(exclude);
+                    } else {
+                        lister.excludeFile(exclude);
+                    }
+                }
+                
+                // Erstelle einen relativen Pfad für das Backup
+                String relativePath = Config.rootFolder.relativize(dir).toString();
+                if (relativePath.isEmpty() || relativePath.equals(".")) {
+                    relativePath = "";
+                } else {
+                    relativePath = relativePath + "/";
+                }
+                
+                lister.backup(relativePath + backupPath.getFileName().toString(), backupDir);
+            }
+            
+            logger.info("Backup erfolgreich erstellt: " + backupPath);
+            return true;
+        } catch (Exception e) {
+            logger.severe("Fehler beim Erstellen des Backups: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Bereinigt ältere Backups der gleichen Version.
+     * @param backupDir Das Backup-Verzeichnis
+     * @param currentBackupName Der Name des aktuellen Backups
+     * @param versionString Die Versionszeichenkette für die Suche
+     */
+    default void cleanupOldBackups(Path backupDir, String currentBackupName, String versionString) {
+        Logger logger = LoggerUtility.getLogger(getClass());
+        try {
+            String prefixToDelete = getClass().getSimpleName() + "-" + versionString;
+            
+            Files.list(backupDir)
+                .filter(path -> {
+                    String filename = path.getFileName().toString();
+                    return filename.startsWith(prefixToDelete) && 
+                           filename.endsWith(".zip") &&
+                           !filename.equals(currentBackupName);
+                })
+                .forEach(path -> {
+                    try {
+                        Files.deleteIfExists(path);
+                        logger.info("Älteres Backup gelöscht: " + path);
+                    } catch (IOException e) {
+                        logger.warning("Konnte älteres Backup nicht löschen: " + path + ": " + e.getMessage());
+                    }
+                });
+        } catch (IOException e) {
+            logger.warning("Fehler beim Bereinigen älterer Backups: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Prüft auf verfügbare Updates für den Server.
+     * @return UpdateInfo-Objekt mit Informationen zu verfügbaren Updates, oder null wenn keine Updates verfügbar sind
+     */
+    default dev.cubie.CubeServerTool.Model.UpdateInfo checkForUpdates() {
+        Logger logger = LoggerUtility.getLogger(getClass());
+        logger.info("Prüfe auf Updates... (Standardimplementierung - keine Update-Prüfung konfiguriert)");
+        return null;
+    }
+    
+    /**
+     * Startet den Server.
+     * Standardimplementierung sucht nach der Server-JAR-Datei und startet sie.
+     */
+    default void start() {
+        Logger logger = LoggerUtility.getLogger(getClass());
+        logger.info("Starte Server " + getInstallerName() + "...");
+        
+        try {
+            // Suche nach der Server-JAR-Datei
+            Pattern jarPattern = getStartFile();
+            Optional<Path> serverJar = Files.list(Config.rootFolder)
+                .filter(path -> jarPattern.matcher(path.getFileName().toString()).matches())
+                .findFirst();
+                
+            if (!serverJar.isPresent()) {
+                logger.severe("Keine passende Server-JAR-Datei gefunden in: " + Config.rootFolder);
+                logger.info("Erwartetes Dateimuster: " + jarPattern.pattern());
+                logger.info("Starte automatische Installation...");
+                try {
+                    install(); // Installation direkt starten
+                    // Nach der Installation erneut versuchen zu starten
+                    start();
+                } catch (Exception e) {
+                    logger.severe("Fehler während der automatischen Installation: " + e.getMessage());
+                }
+                return;
+            }
+            
+            String jarFileName = serverJar.get().getFileName().toString();
+            logger.info("Gefundene Server-JAR: " + jarFileName);
+            
+            // Erstelle oder aktualisiere eula.txt
+            Path eulaFile = Config.rootFolder.resolve("eula.txt");
+            try {
+                String eulaContent;
+                boolean needsUpdate = false;
+                
+                if (Files.exists(eulaFile)) {
+                    // Lese bestehende Datei
+                    eulaContent = new String(Files.readAllBytes(eulaFile), StandardCharsets.UTF_8);
+                    
+                    // Prüfe ob eula=false gesetzt ist und ersetze es
+                    if (eulaContent.contains("eula=false")) {
+                        logger.info("Aktualisiere eula.txt (eula=false -> eula=true)...");
+                        eulaContent = eulaContent.replace("eula=false", "eula=true");
+                        needsUpdate = true;
+                    }
+                } else {
+                    // Erstelle neue eula.txt
+                    logger.info("Erstelle eula.txt...");
+                    eulaContent = "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).\n" +
+                               "#" + java.time.LocalDateTime.now().toString() + "\n" +
+                               "eula=true";
+                    needsUpdate = true;
+                }
+                
+                // Schreibe die Datei nur wenn nötig
+                if (needsUpdate) {
+                    try (BufferedWriter writer = Files.newBufferedWriter(eulaFile, StandardCharsets.UTF_8)) {
+                        writer.write(eulaContent);
+                    }
+                    logger.info("eula.txt erfolgreich aktualisiert.");
+                }
+            } catch (IOException e) {
+                logger.warning("Fehler beim Verarbeiten der eula.txt: " + e.getMessage());
+            }
+            
+            // Starte den Server mit ProcessHandler und Java-Versionsprüfung
+            ProcessHandler processHandler = ProcessHandler.create(jarFileName)
+                .addParameter("nogui")
+                .useConsole(true)
+                .workDir(Config.rootFolder)
+                .useLogger("info")
+                .checkJavaVersion(true);
+                
+            logger.info("Starte Serverprozess...");
+            Process process = processHandler.start();
+            
+            // Warte auf das Ende des Prozesses
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                logger.info("Server wurde ordnungsgemäß beendet.");
+            } else {
+                logger.warning("Server wurde mit Fehlercode " + exitCode + " beendet.");
+            }
+            
+        } catch (IOException e) {
+            if (e.getMessage() != null && e.getMessage().startsWith("This application requires Java")) {
+                logger.severe("Fehler beim Starten des Servers: " + e.getMessage());
+            } else {
+                logger.severe("Fehler beim Starten des Servers: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            logger.severe("Fehler beim Starten des Servers: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     // Get Logger instance from LoggerUtility
     static final Logger logger = LoggerUtility.getLogger(CubeServerModule.class);

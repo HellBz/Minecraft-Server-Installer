@@ -1,0 +1,25 @@
+# Auto-Install Configuration
+
+# Specify your desired Minecraft-Version.
+# Possible options are [Version like: "MinecraftVanilla" or "MinecraftForge"]
+Installer=MinecraftVanilla
+
+#Installer=Minecraft-FORGE
+#Installer=MinecraftForge
+#Installer=dev.cubie.CubeServerTool.Modules.MinecraftForge.MinecraftForge
+
+# Specify your desired LoaderType.
+# Possible options are ["Release" or "Snapshot" or "All"]
+Type=Release
+
+# Specify your desired Loader-Version.
+# Possible options are [Version like: "20.4.164-beta" or "latest" or "recommended"]
+Version=latest
+
+# Specify your desired Loader-Subversion.
+# Possible options are [Version like: "36.1.0" or "latest" or "recommended"]
+SubVersion=latest
+
+# Specify Auto-Update Setting
+# Possible options are [true or false]
+AutoUpdate=false

@@ -43,10 +43,16 @@ public class MinecraftForge implements CubeServerModule {
 
     @Override
     public String[] getAvailableSubVersions() {
-        if ("1.20.2".equals( Config.selectedVersion)) {
+        if ("1.20.2".equals(Config.selectedVersion)) {
             return new String[] {"36.1.0", "36.1.1"};  // Beispielhafte Sub-Versionen
         }
         return new String[0];
+    }
+    
+    @Override
+    public String getCurrentVersion() {
+        // Beispielimplementierung - gibt die aktuell ausgewählte Version zurück
+        return Config.selectedVersion;
     }
 
     @Override

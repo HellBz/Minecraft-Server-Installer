@@ -21,6 +21,7 @@ public class ProcessHandler {
     private String workDir;  // Holds the working directory, defaults to Config.rootFolder
     private String loggerType = "default";  // Controls logging, independent of console output
     private boolean disableInput = false;  // Option to disable input
+    private boolean checkJavaVersion = false;  // Whether to check Java version
     private Process process;  // Reference to the running process
 
     // Initialize logger
@@ -95,8 +96,22 @@ public class ProcessHandler {
 
     // Start the process
     public Process start() throws IOException {
-        List<String> command = buildCommand();
-        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        // Check Java version if enabled
+        if (checkJavaVersion) {
+            Path jarPath = new File(workDir, jarFile).toPath();
+            int requiredVersion = getRequiredJavaVersion(jarPath);
+
+            if (requiredVersion > 0) {
+                logMessage("Required Java version: " + requiredVersion);
+
+                if (!isJavaVersionSufficient(requiredVersion)) {
+                    throw new IOException("This application requires Java " + requiredVersion +
+                            " or higher, but you have Java " + System.getProperty("java.version"));
+                }
+            }
+        }
+
+        ProcessBuilder processBuilder = new ProcessBuilder(buildCommand());
 
         // Set the working directory (use Config.rootFolder if not set)
         processBuilder.directory(new File(workDir));
@@ -163,6 +178,75 @@ public class ProcessHandler {
         // Set the loggerType based on the parameter passed to this method
         this.loggerType = uselogger;
         return this;  // Return this to allow method chaining
+    }
+    
+    // Enable or disable Java version checking
+    public ProcessHandler checkJavaVersion(boolean check) {
+        this.checkJavaVersion = check;
+        return this;
+    }
+    
+    /**
+     * Gets the minimum Java version required for a JAR file
+     * @param jarPath Path to the JAR file
+     * @return Required Java version or -1 if not determinable
+     */
+    private int getRequiredJavaVersion(Path jarPath) {
+        try (java.util.jar.JarFile jarFile = new java.util.jar.JarFile(jarPath.toFile())) {
+            // Check the main class of the JAR
+            String mainClass = jarFile.getManifest()
+                .getMainAttributes()
+                .getValue("Main-Class");
+                
+            if (mainClass != null) {
+                // Convert the class name to a path
+                String classPath = mainClass.replace('.', '/') + ".class";
+                java.util.jar.JarEntry entry = jarFile.getJarEntry(classPath);
+                
+                if (entry != null) {
+                    try (java.io.InputStream is = jarFile.getInputStream(entry)) {
+                        // The first 8 bytes of the class file contain version information
+                        byte[] header = new byte[8];
+                        if (is.read(header) == header.length) {
+                            // Java version is stored in bytes 7-8 (as hex)
+                            int version = (header[7] & 0xFF) | ((header[6] & 0xFF) << 8);
+                            return version - 44; // Java 1.1 = 45, Java 1.2 = 46, etc.
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            logMessage("Could not determine Java version for " + jarPath + ": " + e.getMessage());
+        }
+        return -1;
+    }
+    
+    /**
+     * Checks if the current Java version is sufficient
+     * @param requiredVersion Required Java version (e.g., 8 for Java 8, 17 for Java 17)
+     * @return true if the version is sufficient, false otherwise
+     */
+    private boolean isJavaVersionSufficient(int requiredVersion) {
+        if (requiredVersion <= 0) return true; // If version cannot be determined, assume it's okay
+        
+        String javaVersion = System.getProperty("java.version");
+        int currentVersion;
+        
+        try {
+            // Extract the main version number
+            if (javaVersion.startsWith("1.")) {
+                // Older versions: 1.8.0_xyz
+                currentVersion = Integer.parseInt(javaVersion.split("\\D+")[1]);
+            } else {
+                // Newer versions: 11, 17, etc.
+                currentVersion = Integer.parseInt(javaVersion.split("\\D+")[0]);
+            }
+            
+            return currentVersion >= requiredVersion;
+        } catch (Exception e) {
+            logMessage("Could not determine Java version: " + javaVersion);
+            return true; // If in doubt, try to proceed
+        }
     }
 
     // Method to log messages, independent of the console output
